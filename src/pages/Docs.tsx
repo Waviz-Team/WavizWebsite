@@ -15,52 +15,66 @@ export default function Docs() {
       description: 'The purpose of the Input class is to help initialize an audio analyzer as well as identify the different types of audio/signals. dles audio input from microphone, file, or stream.',
       content: `The Input Class takes in two optional arguments: a callback and an audioContext. The callback (tailored for an audio analyzer) must be initialized in order to use the other methods. The audioContext should only be passed if an audio context has already been set up. Otherwise, our Input class will create an audioContext by default for the user. If using mediaStream methods, make sure to call on them within an event listener tied to a user gesture to stay in line with CORS policy!
 `,
-      methods: [
-  {
-    name: "connectAudioSource",
-    description:
-      "Routes audio from various sources like HTML audio, file, URL, microphone, tab audio, or raw MediaStream.",
-    content: `input.connectAudioSource(audioSource);`,
-  },
-  {
-    name: "initializePending",
-    description:
-      "Awaits user permission for media input (e.g., microphone, tab audio). Prevents suspended audio context.",
-    content: `await input.initializePending();`,
-  },
+    methods: [
+ {
+  name: "connectAudioSource",
+  description: `A router that takes in an audioSource and routes it to the appropriate manager.
+
+Supported input types include:
+- HTML Audio elements (HTMLAudioElement)
+- Local File inputs
+- URL/path strings to media files (string)
+- Microphone ('microphone') — requires user permission
+- Tab Audio ('screenAudio') — *Chromium only*, requires screen capture permission
+- MediaStream input (via await mediaStream) — no sanity checks; for advanced use only`,
+  content: `input.connectAudioSource(audioSource);`
+},
   {
     name: "connectToAudioElement",
-    description: "Handles HTML Audio, local files, and URL-based audio paths.",
+    description:
+      "Handles audio from HTML audio elements, local files, and URL/path strings.",
     content: `input.connectToAudioElement(audioElement);`,
   },
   {
     name: "connectToMediaStream",
-    description: "Handles audio from raw media streams like microphone or tab audio.",
-    content: `input.connectToMediaStream(stream);`,
+    description:
+      "Handles MediaStream inputs such as microphone or tab audio streams.",
+    content: `input.connectToMediaStream(mediaStream);`,
+  },
+  {
+    name: "initializePending",
+    description:
+      "Waits for async user permission (e.g., microphone or screen audio). Prevents suspended audio context.",
+    content: `await input.initializePending();`,
   },
   {
     name: "loadAudioFile",
-    description: "Accepts a file input event and loads the file to the audio handler.",
+    description:
+      "Loads an audio file from an input event (e.g., file input). Routed to connectToAudioElement().",
     content: `input.loadAudioFile(event);`,
   },
   {
     name: "connectToAudioURL",
-    description: "Takes in a string path to an audio file and connects it.",
+    description:
+      "Connects to an audio file using a URL or path string. Routed to connectToAudioElement().",
     content: `input.connectToAudioURL("path/to/audio.mp3");`,
   },
   {
     name: "connectToHTMLElement",
-    description: "Takes an existing HTML audio element and connects it to Web Audio API.",
+    description:
+      "Connects an existing HTML audio element to Web Audio API. Listens for 'play' to resume audio context.",
     content: `input.connectToHTMLElement(document.getElementById("myAudio"));`,
   },
   {
     name: "connectToMicrophone",
-    description: "Accesses user's microphone through getUserMedia.",
+    description:
+      "Accesses the user's microphone using getUserMedia. Routed from initializePending(). Supported by modern browsers.",
     content: `await input.connectToMicrophone();`,
   },
   {
     name: "connectToScreenAudio",
-    description: "Grabs tab audio using getDisplayMedia. Only supported in Chromium browsers.",
+    description:
+      "Captures audio from the current browser tab using getDisplayMedia. Only supported in Chromium browsers.",
     content: `await input.connectToScreenAudio();`,
   },
   {
@@ -70,15 +84,17 @@ export default function Docs() {
   },
   {
     name: "getAudioContext",
-    description: "Returns the current audio context used.",
+    description: "Returns the current audioContext being used.",
     content: `input.getAudioContext();`,
   },
   {
     name: "cleanup",
-    description: "Disconnects and clears the audio context. Reinitialization required for reuse.",
+    description:
+      "Disconnects and clears the current audio context. Requires reinitialization to reuse.",
     content: `input.cleanup();`,
   },
-],
+]
+,
     },
     {
       name: 'Analyzer',
