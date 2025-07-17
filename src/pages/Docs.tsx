@@ -12,20 +12,73 @@ export default function Docs() {
   const apiList = [
     {
       name: 'Input',
-      description: 'Handles audio input from microphone, file, or stream.',
-      content: `The Input module allows developers to choose from multiple audio sources.`,
+      description: 'The purpose of the Input class is to help initialize an audio analyzer as well as identify the different types of audio/signals. dles audio input from microphone, file, or stream.',
+      content: `The Input Class takes in two optional arguments: a callback and an audioContext. The callback (tailored for an audio analyzer) must be initialized in order to use the other methods. The audioContext should only be passed if an audio context has already been set up. Otherwise, our Input class will create an audioContext by default for the user. If using mediaStream methods, make sure to call on them within an event listener tied to a user gesture to stay in line with CORS policy!
+`,
       methods: [
-        {
-          name: 'connectAudioSource',
-          description: 'A router that takes in an audioSource and identifies type.',
-          content: 'input.connectAudioSource(audioSource);',
-        },
-        {
-          name: 'initializePending',
-          description: 'Awaits permission for async media sources.',
-          content: 'await input.initializePending();',
-        },
-      ],
+  {
+    name: "connectAudioSource",
+    description:
+      "Routes audio from various sources like HTML audio, file, URL, microphone, tab audio, or raw MediaStream.",
+    content: `input.connectAudioSource(audioSource);`,
+  },
+  {
+    name: "initializePending",
+    description:
+      "Awaits user permission for media input (e.g., microphone, tab audio). Prevents suspended audio context.",
+    content: `await input.initializePending();`,
+  },
+  {
+    name: "connectToAudioElement",
+    description: "Handles HTML Audio, local files, and URL-based audio paths.",
+    content: `input.connectToAudioElement(audioElement);`,
+  },
+  {
+    name: "connectToMediaStream",
+    description: "Handles audio from raw media streams like microphone or tab audio.",
+    content: `input.connectToMediaStream(stream);`,
+  },
+  {
+    name: "loadAudioFile",
+    description: "Accepts a file input event and loads the file to the audio handler.",
+    content: `input.loadAudioFile(event);`,
+  },
+  {
+    name: "connectToAudioURL",
+    description: "Takes in a string path to an audio file and connects it.",
+    content: `input.connectToAudioURL("path/to/audio.mp3");`,
+  },
+  {
+    name: "connectToHTMLElement",
+    description: "Takes an existing HTML audio element and connects it to Web Audio API.",
+    content: `input.connectToHTMLElement(document.getElementById("myAudio"));`,
+  },
+  {
+    name: "connectToMicrophone",
+    description: "Accesses user's microphone through getUserMedia.",
+    content: `await input.connectToMicrophone();`,
+  },
+  {
+    name: "connectToScreenAudio",
+    description: "Grabs tab audio using getDisplayMedia. Only supported in Chromium browsers.",
+    content: `await input.connectToScreenAudio();`,
+  },
+  {
+    name: "getSourceNode",
+    description: "Returns the current source node connected to Web Audio API.",
+    content: `input.getSourceNode();`,
+  },
+  {
+    name: "getAudioContext",
+    description: "Returns the current audio context used.",
+    content: `input.getAudioContext();`,
+  },
+  {
+    name: "cleanup",
+    description: "Disconnects and clears the audio context. Reinitialization required for reuse.",
+    content: `input.cleanup();`,
+  },
+],
     },
     {
       name: 'Analyzer',
