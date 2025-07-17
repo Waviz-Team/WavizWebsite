@@ -6,9 +6,12 @@ import logo from '../assets/logo.png';
 export default function Home() {
   return (
     <div className="home">
+      
       <section className="section title-section">
-        <img src={logo} alt="Waviz Logo" className="logo" />
-        <h1 className="title-heading">Waviz</h1>
+        <div className="logo-text-wrapper">
+          <img src={logo} alt="Waviz Logo" className="logo" />
+          <h1 className="title-heading">Waviz</h1>
+        </div>
         <p className="title-subtext">Real-Time Audio Visualization Made Easy</p>
       </section>
 
@@ -30,11 +33,19 @@ export default function Home() {
       <section className="section library-section">
         <h2>Powerful PnP Library</h2>
         <p>Just Plug and Play—Simple API with powerful customization.</p>
+        <code>import Waviz from 'waviz'</code>
       </section>
 
-      <footer className="section footer-section">
-        <p>Footer</p>
-      </footer>
+    <footer className="section footer-section">
+  <p>© 2025 Waviz</p>
+  <div className="footer-links">
+    <a href="#privacy">Privacy</a> ·
+    <a href="#terms">Terms</a> ·
+    <a href="https://github.com/waviz" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+
     </div>
   );
 }

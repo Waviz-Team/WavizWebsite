@@ -17,7 +17,7 @@
   color: white;
   padding: 6rem 2rem;
   text-align: center;
-  min-height: 80vh;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,14 +25,18 @@
 }
 
 .logo {
-  width: 140px;
-  height: auto;
-  margin-bottom: 2rem;
+  width: 120px;
+  margin-bottom: 0.5rem;
 }
 
-.title-section {
-  width: 100vw; /* Full width of the viewport */
+.title-heading.subtle-title {
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
 }
+
 
 
 .title-heading {
@@ -52,16 +56,81 @@
 
 
 .features-section {
-  background-color: #ffffff;
+  background: linear-gradient(to bottom, #f4f6ff, #e6ecff);
+  padding: 4rem 2rem;
+  text-align: center;
 }
+
+
+
+.features-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #1a1a2e;
+}
+.features-section ul {
+  list-style: none;
+  padding: 0;
+}
+.features-section li {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+
+
+.usage-section code {
+  display: block;
+  background-color: #1e1e2f;
+  color: #00e0ff;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  margin: 1rem auto;  
+  width: fit-content;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 
 .usage-section {
-  background-color: #f9f9f9;
+  background-color: #f0f4ff;
+  text-align: center;
+  padding: 4rem 2rem;
 }
 
-.library-section {
-  background-color: #e8f5e9;
+.usage-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
+
+.usage-section p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+
+.library-section {
+  background-color: #1b1d2a; 
+  color: #f4f4f4;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.library-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #62dafc; 
+}
+
+.library-section p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 
 .footer-section {
   background-color: #eeeeee;
@@ -101,41 +170,83 @@
 }
 
 .docs-page {
+  max-width: 1000px;
+  margin: 0 auto;
   padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto; /* ✅ 중앙 정렬 */
-  width: 100%;
-  box-sizing: border-box;
 }
 
-
-.docs-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+.docs-header {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .docs-search {
-  margin: 2rem 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .search-input {
-  padding: 0.7rem 1rem;
-  width: 100%;
-  font-size: 1rem;
+  width: 60%;
+  max-width: 500px;
+  padding: 0.75rem;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
-.docs-section {
-  margin-top: 2.5rem;
+
+
+.docs-container {
+  display: flex;
+  margin-top: 2rem;
+}
+
+.docs-sidebar {
+  width: 200px;
+  padding: 1rem;
+  border-right: 1px solid #ccc;
+  position: sticky;
+  top: 100px;
+}
+
+.docs-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.docs-sidebar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.docs-content {
+  flex: 1;
+  padding: 1rem 2rem;
 }
 
 .code-block {
-  display: block;
-  background: #f5f5f5;
+  background-color: #f4f4f4;
   padding: 1rem;
-  border-radius: 6px;
+  border-radius: 8px;
   font-family: monospace;
+  white-space: pre-wrap;
+  margin-top: 0.5rem;
 }
+
+
+
+code {
+  background-color: #1e1e2f;
+  color:  #c3f3ff
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  font-family: 'Courier New', Courier, monospace;
+  border-radius: 6px;
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
 
 
