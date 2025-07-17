@@ -237,7 +237,7 @@
 
 
 
-code {
+/* .code {
   background-color: #1e1e2f;
   color:  #c3f3ff
   padding: 0.5rem 0.75rem;
@@ -246,6 +246,21 @@ code {
   border-radius: 6px;
   display: inline-block;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+} */
+
+.sidebar-toggle {
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.5rem;
+  text-align: left;
+  width: 100%;
+}
+
+.sidebar-sublist {
+  margin-left: 1rem;
+  list-style-type: circle;
 }
 
 
