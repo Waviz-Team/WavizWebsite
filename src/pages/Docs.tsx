@@ -11,10 +11,15 @@ export default function Docs() {
 
   const apiList = [
     {
-      name: 'Input',
-      description: 'The purpose of the Input class is to help initialize an audio analyzer as well as identify the different types of audio/signals. dles audio input from microphone, file, or stream.',
-      content: `The Input Class takes in two optional arguments: a callback and an audioContext. The callback (tailored for an audio analyzer) must be initialized in order to use the other methods. The audioContext should only be passed if an audio context has already been set up. Otherwise, our Input class will create an audioContext by default for the user. If using mediaStream methods, make sure to call on them within an event listener tied to a user gesture to stay in line with CORS policy!
-`,
+    name: 'Input',
+    description: `The Input class helps initialize an audio analyzer and identify different types of audio sources, such as microphone, files, or streams.
+
+    It takes in two optional arguments: a callback and an audioContext.
+
+    - The callback (tailored for an audio analyzer) must be initialized before using other methods.
+    - The audioContext should only be passed if one has already been created. Otherwise, the Input class will create a default audioContext.
+    - When using mediaStream methods, make sure to call them within an event listener tied to a user gesture (e.g., a click), to comply with browser CORS policies.`,
+    content: '',
     methods: [
  {
   name: "connectAudioSource",
@@ -184,7 +189,7 @@ Supported input types include:
           <section className="docs-section">
             <h2>Installation</h2>
             <p>Install Waviz via npm:</p>
-            <pre className="code-block">npm install waviz</pre>
+            <pre className="code-block"><code>npm install waviz</code></pre>
           </section>
 
           <section className="docs-section">
@@ -200,12 +205,12 @@ Supported input types include:
                   <li key={item.name} className="api-item">
                     <h3 id={item.name.toLowerCase()}>{item.name}</h3>
                     <p>{item.description}</p>
-                    <pre className="code-block">{item.content}</pre>
+                    <pre className="code-block"><code>{item.content}</code></pre>
                     {item.methods && item.methods.map((method) => (
                       <div key={method.name}>
                         <h4 id={method.name.toLowerCase()}>{method.name}</h4>
                         <p>{method.description}</p>
-                        <pre className="code-block">{method.content}</pre>
+                        <pre className="code-block"><code>{method.content}</code></pre>
                       </div>
                     ))}
                   </li>

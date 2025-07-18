@@ -259,16 +259,62 @@
 }
 
 .code-block {
-  background-color: #f4f4f4;
-  padding: 1rem;
+  position: relative;
+  background-color: #1e1e2f;
+  padding: 1.25rem 1.5rem;
   border-radius: 8px;
-  font-family: monospace;
-  white-space: pre-wrap;
-  margin-top: 0.5rem;
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
+
+.code-block code {
+  font-family: Menlo, Consolas, 'Courier New', monospace;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  white-space: pre-wrap;
+  color: #eaeaea;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: block;
+}
+
+
+.code-block::before {
+  content: 'Terminal';
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.4rem 1rem;
+  background-color: #2d2d3a;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.4rem 1rem;
+  background-color: #2d2d3a;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.copy-button:hover {
+  color: #fff;
+}
+
 
 code {
   background-color: #1e1e2f;
