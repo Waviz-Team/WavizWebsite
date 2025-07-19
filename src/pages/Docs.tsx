@@ -11,7 +11,7 @@ export default function Docs() {
 
   const apiList = [
     {
-    name: 'Input',
+    name: 'Input Class',
     description: `The Input class helps initialize an audio analyzer and identify different types of audio sources, such as microphone, files, or streams.
 
     It takes in two optional arguments: a callback and an audioContext.
@@ -102,7 +102,7 @@ Supported input types include:
 ,
     },
     {
-      name: 'Analyzer',
+      name: 'Analyzer Class',
       description: 'Processes audio signals and returns frequency data.',
       content: `Analyzer transforms audio into frequency/time-domain data.`,
       methods: [
@@ -114,7 +114,7 @@ Supported input types include:
       ],
     },
     {
-      name: 'Visualizer',
+      name: 'Visualizer Class',
       description: 'Renders real-time visuals on the canvas.',
       content: `Visualizer connects to the canvas and draws audio patterns.`,
       methods: [
@@ -126,7 +126,7 @@ Supported input types include:
       ],
     },
     {
-      name: 'Component',
+      name: 'Component Class',
       description: 'Reusable visual modules for custom integration.',
       content: `Component provides React components like <WaveViz />`,
       methods: [
