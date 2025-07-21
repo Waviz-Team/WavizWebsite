@@ -105,52 +105,52 @@ Supported input types include:
       name: 'Analyzer Class',
       description: `The AudioAnalyzer class provides an in-house analyzer for audio data while maintaining clear separation of concerns. It uses the Web Audio API to run Fourier transformations on a given audio context. The core method, startAnalysis, takes two required arguments:
 
-- audioContext (AudioContext): The audio environment
-- sourceNode (AudioNode): The audio source to analyze
+      - audioContext (AudioContext): The audio environment
+      - sourceNode (AudioNode): The audio source to analyze
 
-startAnalysis creates an analyser node and begins FFT (Fast Fourier Transform) analysis. Default fftSize is 2048. A future update will allow users to change fftSize dynamically.`,
+      startAnalysis creates an analyser node and begins FFT (Fast Fourier Transform) analysis. Default fftSize is 2048. A future update will allow users to change fftSize dynamically.`,
       content: `analyzer.startAnalysis(audioContext, sourceNode);`,
       methods: [ 
            {
       name: 'startAnalysis',
       description:
-        'The primary method that creates and configures the analyser node using Web Audio API. Requires audioContext and sourceNode.',
+        'The primary method of the audioAnalyzer class. It will run a Fourier analysis on the audioContext using .createAnalyser() defined by WebAudioApi. By default, it will take a fftSize of 2048. Future Update: Allow users to dynamically change fftSize!',
       content: 'analyzer.startAnalysis(audioContext, sourceNode);',
     },
 
       {
         name: 'getFrequencyData',
-        description: 'Returns frequency-domain data as an array of 8-bit unsigned integers. Length is half of fftSize.',
+        description: ' allows users/functions to pull the array of frequency data mapped by FFT in bins to access. The array will be of type 8-bit unsigned integers with an array length of 1/2 the fftSize.',
         content: 'const data = analyzer.getFrequencyData();',
       },
         {
       name: 'getTimeDomainData',
       description:
-        'Returns time-domain data (waveform) as an array of 8-bit unsigned integers. Length is half of fftSize.',
+        'allows users/functions to pull the array of time mapped data by FFT in bins to access. The array will be of type 8-bit unsigned integers with an array length of 1/2 the fftSize.',
       content: 'const waveform = analyzer.getTimeDomainData();',
     },
     {
       name: 'getDataArray',
       description:
-        'Returns the raw frequency data as a Uint8Array. Same as getFrequencyData().',
+        'Allows users/functions to grab the raw freq data in type 8-bit unsigned integers.',
       content: 'const rawData = analyzer.getDataArray();',
     },
     {
       name: 'getBufferLength',
       description:
-        'Returns the frequency bin count (half of fftSize). Useful for drawing bars or waveforms.',
+        'This will output the frequency bin count as a number, which will be 1/2 the fftSize.',
       content: 'const bins = analyzer.getBufferLength();',
     },
     {
-      name: 'timeData (getter)',
+      name: ' get timeData ()',
       description:
-        'Getter that returns live time-domain data. Equivalent to getTimeDomainData().',
+        'A getter function that outputs the same result as getTimeDomainData(). This is here in case users want to access live data via a getter function instead.',
       content: 'const waveform = analyzer.timeData;',
     },
     {
-      name: 'freqData (getter)',
+      name: 'get freqData ()',
       description:
-        'Getter that returns live frequency data. Equivalent to getFrequencyData().',
+        'A getter function that outputs the same result as getFrequencyData(). This is here in case users want to access live data via a getter function instead.',
       content: 'const spectrum = analyzer.freqData;',
     },
 
@@ -169,12 +169,53 @@ startAnalysis creates an analyser node and begins FFT (Fast Fourier Transform) a
       ],
     },
     {
+  name: 'Waviz Class',
+  description: `The purpose of the Waviz class is to provide a wrapper class for all the modularized classes we have defined below (input, analyzer, visualizer) through class composition. If you want a simple, effective way to create a visualizer that isn't a react component, use this class! The Waviz class takes in 3 optional arguments:
+
+- canvas: type should be an HTML Canvas Element. We need a provided user canvas to draw our visualizer on!
+- audioSource: type will be the same type defined in the Input class .connectAudioSource() below. This is necessary as well if you want to start the visualizer!
+- audioContext:  type will be an AudioContext. This is the currently the only optional parameter that is not needed to start the visualizer. However, if an audioContext has already been established and you don't want to duplicate audioContext (you probably shouldn't), then you can pass in your already existing audioContext. This is also helpful in the case you want to create multiple visualizers on the same page. All 3 arguments are not needed to initialize the class. However, the first two (canvas, audioSource) should be passed in if you want to start the visualizer. Using these arguments, the Waviz class will auto initialize the visualizer/audioContext for you.`,
+  content: `const waviz = new Waviz(canvas, audioSource, audioContext);`,
+  methods: [
+    {
+      name: 'getFrequencyData',
+      description:
+        'A delegator method that pulls the frequency data while providing sanity checks. For more details, refer to our audioAnalyzer documentation!',
+      content: 'const data = waviz.getFrequencyData();',
+    },
+    {
+      name: 'getTimeDomainData',
+      description:
+        'A delegator method that pulls the time domain data while providing sanity checks. For more details, refer to our audioAnalyzer documentation!',
+      content: 'const waveform = waviz.getTimeDomainData();',
+    },
+    {
+      name: 'cleanup',
+      description:
+        'Delegates to Input.cleanup(). Safely disconnects the audio context and clears connections.',
+      content: 'waviz.cleanup();',
+    },
+    {
+      name: 'wave',
+      description:
+        'Convenience method for drawing waveforms. Takes in the optional arguments of options (for the full list of options, refer to the visualizer documentation!). This will initialize the wave visualizer for you. If using mediaStream inputs, make sure to call within an event listener, tied to a user gesture, in order to comply with browser autoplay and permission policies!',
+    },
+    {
+      name: 'bar',
+      description:
+        'Convenience method for drawing bar visualizations. takes in the optional arguments of options (for the full list of options, refer to the visualizer documentation!). This will initialize the bar visualizer for you. If using mediaStream inputs, make sure to call within an event listener, tied to a user gesture, in order to comply with browser autoplay and permission policies!',
+
+      content: 'waviz.bar({ barWidth: 4, numBars: 128 });',
+    },
+  ],
+},
+    {
       name: 'Component Class',
       description: 'Reusable visual modules for custom integration.',
       content: `Component provides React components like <WaveViz />`,
       methods: [
         {
-          name: 'WaveViz',
+          name: 'WaveComponent',
           description: 'React component for waveform visualization.',
           content: '<WaveViz audioSource="file" />',
         },
