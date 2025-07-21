@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import '../App.css';
 
 export default function Docs() {
@@ -8,6 +8,23 @@ export default function Docs() {
   const toggleSection = (index: number) => {
     setExpandedSection((prev) => (prev === index ? null : index));
   };
+  
+  const normalizedQuery = query.toLowerCase().trim();
+  const firstMatchRef = useRef<HTMLHeadingElement | null>(null);
+useEffect(() => {
+  if (!normalizedQuery) return;
+
+  const timeout = setTimeout(() => {
+    if (firstMatchRef.current) {
+      firstMatchRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    }
+  }, 300); // 300ms debounce delay
+
+  return () => clearTimeout(timeout); // Cleanup if user types again quickly
+}, [normalizedQuery]);
 
   const apiList = [
     {
@@ -281,14 +298,33 @@ Supported input types include:
             <h2>Getting Started</h2>
             <p>Waviz renders real-time audio visualizations in web apps.</p>
           </section>
-
+        
           <section className="docs-section">
             <h2>API Overview</h2>
-            {filteredApiList.length > 0 ? (
-              <ul>
-                {filteredApiList.map((item) => (
+            <ul>
+              {apiList.map((item) => {
+
+                const classMatches =
+                  item.name.toLowerCase().includes(normalizedQuery) ||
+                  item.description.toLowerCase().includes(normalizedQuery) ||
+                  item.content.toLowerCase().includes(normalizedQuery);
+
+                // Check if any method inside the class matches
+                const methodMatches = (item.methods || []).some((method) =>
+                  method.name.toLowerCase().includes(normalizedQuery) ||
+                  method.description.toLowerCase().includes(normalizedQuery) 
+                );
+
+                const isMatch = normalizedQuery && (classMatches || methodMatches);
+
+                return (
                   <li key={item.name} className="api-item">
-                    <h3 id={item.name.toLowerCase()}>{item.name}</h3>
+                    <h3
+                      id={item.name.toLowerCase()}
+                      ref={isMatch && firstMatchRef.current === null ? firstMatchRef : null}
+                    >
+                      {item.name}
+                    </h3>
                     <p>{item.description}</p>
                     <pre className="code-block"><code>{item.content}</code></pre>
                     {item.methods && item.methods.map((method) => (
@@ -299,14 +335,15 @@ Supported input types include:
                       </div>
                     ))}
                   </li>
-                ))}
-              </ul>
-            ) : (
-              <p style={{ color: '#888' }}>No results found.</p>
-            )}
+                );
+              })}
+            </ul>
           </section>
         </main>
       </div>
     </div>
   );
 }
+
+
+//  <p style={{ color: '#888' }}>No results found.</p>
