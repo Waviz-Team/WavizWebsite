@@ -103,14 +103,57 @@ Supported input types include:
     },
     {
       name: 'Analyzer Class',
-      description: 'Processes audio signals and returns frequency data.',
-      content: `Analyzer transforms audio into frequency/time-domain data.`,
-      methods: [
+      description: `The AudioAnalyzer class provides an in-house analyzer for audio data while maintaining clear separation of concerns. It uses the Web Audio API to run Fourier transformations on a given audio context. The core method, startAnalysis, takes two required arguments:
+
+- audioContext (AudioContext): The audio environment
+- sourceNode (AudioNode): The audio source to analyze
+
+startAnalysis creates an analyser node and begins FFT (Fast Fourier Transform) analysis. Default fftSize is 2048. A future update will allow users to change fftSize dynamically.`,
+      content: `analyzer.startAnalysis(audioContext, sourceNode);`,
+      methods: [ 
+           {
+      name: 'startAnalysis',
+      description:
+        'The primary method that creates and configures the analyser node using Web Audio API. Requires audioContext and sourceNode.',
+      content: 'analyzer.startAnalysis(audioContext, sourceNode);',
+    },
+
+      {
+        name: 'getFrequencyData',
+        description: 'Returns frequency-domain data as an array of 8-bit unsigned integers. Length is half of fftSize.',
+        content: 'const data = analyzer.getFrequencyData();',
+      },
         {
-          name: 'getFrequencyData',
-          description: 'Returns array of frequency data.',
-          content: 'const data = analyzer.getFrequencyData();',
-        },
+      name: 'getTimeDomainData',
+      description:
+        'Returns time-domain data (waveform) as an array of 8-bit unsigned integers. Length is half of fftSize.',
+      content: 'const waveform = analyzer.getTimeDomainData();',
+    },
+    {
+      name: 'getDataArray',
+      description:
+        'Returns the raw frequency data as a Uint8Array. Same as getFrequencyData().',
+      content: 'const rawData = analyzer.getDataArray();',
+    },
+    {
+      name: 'getBufferLength',
+      description:
+        'Returns the frequency bin count (half of fftSize). Useful for drawing bars or waveforms.',
+      content: 'const bins = analyzer.getBufferLength();',
+    },
+    {
+      name: 'timeData (getter)',
+      description:
+        'Getter that returns live time-domain data. Equivalent to getTimeDomainData().',
+      content: 'const waveform = analyzer.timeData;',
+    },
+    {
+      name: 'freqData (getter)',
+      description:
+        'Getter that returns live frequency data. Equivalent to getFrequencyData().',
+      content: 'const spectrum = analyzer.freqData;',
+    },
+
       ],
     },
     {
