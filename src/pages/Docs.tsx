@@ -1,236 +1,163 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../App.css';
+import { BST } from '../components/bst'; // 📘 Import our Binary Search Tree class
 
 export default function Docs() {
+  // Stores the text the user types in the search bar
   const [query, setQuery] = useState('');
+
+  // Holds the list of API items to show based on the search
+  const [filteredApiList, setFilteredApiList] = useState<any[]>([]);
+
+  // Keeps track of which sidebar section is expanded
   const [expandedSection, setExpandedSection] = useState<number | null>(null);
 
+  // Reference to the BST instance we will build and search
+  const bstRef = useRef<BST | null>(null);
+
+  // Expand/collapse section logic
   const toggleSection = (index: number) => {
     setExpandedSection((prev) => (prev === index ? null : index));
   };
 
+  // Full documentation content (name, description, methods, etc.)
   const apiList = [
     {
-    name: 'Input Class',
-    description: `The Input class helps initialize an audio analyzer and identify different types of audio sources, such as microphone, files, or streams.
-
-    It takes in two optional arguments: a callback and an audioContext.
-
-    - The callback (tailored for an audio analyzer) must be initialized before using other methods.
-    - The audioContext should only be passed if one has already been created. Otherwise, the Input class will create a default audioContext.
-    - When using mediaStream methods, make sure to call them within an event listener tied to a user gesture (e.g., a click), to comply with browser CORS policies.`,
-    content: '',
-    methods: [
- {
-  name: "connectAudioSource",
-  description: `A router that takes in an audioSource and routes it to the appropriate manager.
-
-Supported input types include:
-- HTML Audio elements (HTMLAudioElement)
-- Local File inputs
-- URL/path strings to media files (string)
-- Microphone ('microphone') — requires user permission
-- Tab Audio ('screenAudio') — *Chromium only*, requires screen capture permission
-- MediaStream input (via await mediaStream) — no sanity checks; for advanced use only`,
-  content: `input.connectAudioSource(audioSource);`
-},
-  {
-    name: "connectToAudioElement",
-    description:
-      "Handles audio from HTML audio elements, local files, and URL/path strings.",
-    content: `input.connectToAudioElement(audioElement);`,
-  },
-  {
-    name: "connectToMediaStream",
-    description:
-      "Handles MediaStream inputs such as microphone or tab audio streams.",
-    content: `input.connectToMediaStream(mediaStream);`,
-  },
-  {
-    name: "initializePending",
-    description:
-      "Waits for async user permission (e.g., microphone or screen audio). Prevents suspended audio context.",
-    content: `await input.initializePending();`,
-  },
-  {
-    name: "loadAudioFile",
-    description:
-      "Loads an audio file from an input event (e.g., file input). Routed to connectToAudioElement().",
-    content: `input.loadAudioFile(event);`,
-  },
-  {
-    name: "connectToAudioURL",
-    description:
-      "Connects to an audio file using a URL or path string. Routed to connectToAudioElement().",
-    content: `input.connectToAudioURL("path/to/audio.mp3");`,
-  },
-  {
-    name: "connectToHTMLElement",
-    description:
-      "Connects an existing HTML audio element to Web Audio API. Listens for 'play' to resume audio context.",
-    content: `input.connectToHTMLElement(document.getElementById("myAudio"));`,
-  },
-  {
-    name: "connectToMicrophone",
-    description:
-      "Accesses the user's microphone using getUserMedia. Routed from initializePending(). Supported by modern browsers.",
-    content: `await input.connectToMicrophone();`,
-  },
-  {
-    name: "connectToScreenAudio",
-    description:
-      "Captures audio from the current browser tab using getDisplayMedia. Only supported in Chromium browsers.",
-    content: `await input.connectToScreenAudio();`,
-  },
-  {
-    name: "getSourceNode",
-    description: "Returns the current source node connected to Web Audio API.",
-    content: `input.getSourceNode();`,
-  },
-  {
-    name: "getAudioContext",
-    description: "Returns the current audioContext being used.",
-    content: `input.getAudioContext();`,
-  },
-  {
-    name: "cleanup",
-    description:
-      "Disconnects and clears the current audio context. Requires reinitialization to reuse.",
-    content: `input.cleanup();`,
-  },
-]
-,
+      name: 'Input Class',
+      description: 'The Input class helps initialize audio sources.',
+      content: '',
+      methods: [
+        {
+          name: "connectAudioSource",
+          description: "Routes the audio input to the right handler.",
+          content: `input.connectAudioSource(audioSource);`
+        },
+        {
+          name: "connectToAudioElement",
+          description: "Connects audio from an <audio> tag or file.",
+          content: `input.connectToAudioElement(audioElement);`,
+        },
+        {
+          name: "connectToMediaStream",
+          description: "Handles input from microphone or screen audio.",
+          content: `input.connectToMediaStream(mediaStream);`,
+        },
+        {
+          name: "initializePending",
+          description: "Waits for user permission before playing audio.",
+          content: `await input.initializePending();`,
+        },
+        {
+          name: "connectToMicrophone",
+          description: "Gets microphone input using getUserMedia.",
+          content: `await input.connectToMicrophone();`,
+        },
+        {
+          name: "cleanup",
+          description: "Stops audio and resets context.",
+          content: `input.cleanup();`,
+        },
+      ],
     },
     {
       name: 'Analyzer Class',
-      description: `The AudioAnalyzer class provides an in-house analyzer for audio data while maintaining clear separation of concerns. It uses the Web Audio API to run Fourier transformations on a given audio context. The core method, startAnalysis, takes two required arguments:
-
-      - audioContext (AudioContext): The audio environment
-      - sourceNode (AudioNode): The audio source to analyze
-
-      startAnalysis creates an analyser node and begins FFT (Fast Fourier Transform) analysis. Default fftSize is 2048. A future update will allow users to change fftSize dynamically.`,
+      description: 'Performs FFT analysis using the Web Audio API.',
       content: `analyzer.startAnalysis(audioContext, sourceNode);`,
-      methods: [ 
-           {
-      name: 'startAnalysis',
-      description:
-        'The primary method of the audioAnalyzer class. It will run a Fourier analysis on the audioContext using .createAnalyser() defined by WebAudioApi. By default, it will take a fftSize of 2048. Future Update: Allow users to dynamically change fftSize!',
-      content: 'analyzer.startAnalysis(audioContext, sourceNode);',
-    },
-
-      {
-        name: 'getFrequencyData',
-        description: ' allows users/functions to pull the array of frequency data mapped by FFT in bins to access. The array will be of type 8-bit unsigned integers with an array length of 1/2 the fftSize.',
-        content: 'const data = analyzer.getFrequencyData();',
-      },
+      methods: [
         {
-      name: 'getTimeDomainData',
-      description:
-        'allows users/functions to pull the array of time mapped data by FFT in bins to access. The array will be of type 8-bit unsigned integers with an array length of 1/2 the fftSize.',
-      content: 'const waveform = analyzer.getTimeDomainData();',
-    },
-    {
-      name: 'getDataArray',
-      description:
-        'Allows users/functions to grab the raw freq data in type 8-bit unsigned integers.',
-      content: 'const rawData = analyzer.getDataArray();',
-    },
-    {
-      name: 'getBufferLength',
-      description:
-        'This will output the frequency bin count as a number, which will be 1/2 the fftSize.',
-      content: 'const bins = analyzer.getBufferLength();',
-    },
-    {
-      name: ' get timeData ()',
-      description:
-        'A getter function that outputs the same result as getTimeDomainData(). This is here in case users want to access live data via a getter function instead.',
-      content: 'const waveform = analyzer.timeData;',
-    },
-    {
-      name: 'get freqData ()',
-      description:
-        'A getter function that outputs the same result as getFrequencyData(). This is here in case users want to access live data via a getter function instead.',
-      content: 'const spectrum = analyzer.freqData;',
-    },
-
+          name: 'startAnalysis',
+          description: 'Starts analyzing the input audio.',
+          content: 'analyzer.startAnalysis(audioContext, sourceNode);',
+        },
+        {
+          name: 'getFrequencyData',
+          description: 'Gets current frequency data from audio.',
+          content: 'const data = analyzer.getFrequencyData();',
+        },
+        {
+          name: 'getTimeDomainData',
+          description: 'Gets waveform data from audio.',
+          content: 'const waveform = analyzer.getTimeDomainData();',
+        },
       ],
     },
     {
       name: 'Visualizer Class',
-      description: 'Renders real-time visuals on the canvas.',
+      description: 'Draws visuals on the canvas using audio data.',
       content: `Visualizer connects to the canvas and draws audio patterns.`,
       methods: [
         {
           name: 'draw',
-          description: 'Draws visualization on canvas.',
+          description: 'Renders visuals on a canvas element.',
           content: 'visualizer.draw(canvas);',
         },
       ],
     },
     {
-  name: 'Waviz Class',
-  description: `The purpose of the Waviz class is to provide a wrapper class for all the modularized classes we have defined below (input, analyzer, visualizer) through class composition. If you want a simple, effective way to create a visualizer that isn't a react component, use this class! The Waviz class takes in 3 optional arguments:
-
-- canvas: type should be an HTML Canvas Element. We need a provided user canvas to draw our visualizer on!
-- audioSource: type will be the same type defined in the Input class .connectAudioSource() below. This is necessary as well if you want to start the visualizer!
-- audioContext:  type will be an AudioContext. This is the currently the only optional parameter that is not needed to start the visualizer. However, if an audioContext has already been established and you don't want to duplicate audioContext (you probably shouldn't), then you can pass in your already existing audioContext. This is also helpful in the case you want to create multiple visualizers on the same page. All 3 arguments are not needed to initialize the class. However, the first two (canvas, audioSource) should be passed in if you want to start the visualizer. Using these arguments, the Waviz class will auto initialize the visualizer/audioContext for you.`,
-  content: `const waviz = new Waviz(canvas, audioSource, audioContext);`,
-  methods: [
-    {
-      name: 'getFrequencyData',
-      description:
-        'A delegator method that pulls the frequency data while providing sanity checks. For more details, refer to our audioAnalyzer documentation!',
-      content: 'const data = waviz.getFrequencyData();',
+      name: 'Waviz Class',
+      description: 'Combines Input, Analyzer, and Visualizer in one class.',
+      content: `const waviz = new Waviz(canvas, audioSource, audioContext);`,
+      methods: [
+        {
+          name: 'getFrequencyData',
+          description: 'Safely gets frequency data from inside.',
+          content: 'const data = waviz.getFrequencyData();',
+        },
+        {
+          name: 'cleanup',
+          description: 'Disconnects and resets audio system.',
+          content: 'waviz.cleanup();',
+        },
+      ],
     },
-    {
-      name: 'getTimeDomainData',
-      description:
-        'A delegator method that pulls the time domain data while providing sanity checks. For more details, refer to our audioAnalyzer documentation!',
-      content: 'const waveform = waviz.getTimeDomainData();',
-    },
-    {
-      name: 'cleanup',
-      description:
-        'Delegates to Input.cleanup(). Safely disconnects the audio context and clears connections.',
-      content: 'waviz.cleanup();',
-    },
-    {
-      name: 'wave',
-      description:
-        'Convenience method for drawing waveforms. Takes in the optional arguments of options (for the full list of options, refer to the visualizer documentation!). This will initialize the wave visualizer for you. If using mediaStream inputs, make sure to call within an event listener, tied to a user gesture, in order to comply with browser autoplay and permission policies!',
-    },
-    {
-      name: 'bar',
-      description:
-        'Convenience method for drawing bar visualizations. takes in the optional arguments of options (for the full list of options, refer to the visualizer documentation!). This will initialize the bar visualizer for you. If using mediaStream inputs, make sure to call within an event listener, tied to a user gesture, in order to comply with browser autoplay and permission policies!',
-
-      content: 'waviz.bar({ barWidth: 4, numBars: 128 });',
-    },
-  ],
-},
     {
       name: 'Component Class',
-      description: 'Reusable visual modules for custom integration.',
-      content: `Component provides React components like <WaveViz />`,
+      description: 'Provides reusable React components like <WaveViz />',
+      content: `<WaveViz audioSource="file" />`,
       methods: [
         {
           name: 'WaveComponent',
-          description: 'React component for waveform visualization.',
+          description: 'A React component that visualizes waveform.',
           content: '<WaveViz audioSource="file" />',
         },
       ],
     },
   ];
 
-  const filteredApiList = apiList.filter(({ name, description, content }) => {
-    const q = query.toLowerCase().trim();
-    return (
-      name.toLowerCase().includes(q) ||
-      description.toLowerCase().includes(q) ||
-      content.toLowerCase().replace(/\s+/g, ' ').includes(q)
-    );
-  });
+  // On first load: create and build the BST with all doc items
+  useEffect(() => {
+    const bst = new BST();
+
+    // Insert each item's name, description, and method info into the tree
+    apiList.forEach((item) => {
+      bst.insert(item.name, item);
+      bst.insert(item.description, item);
+      if (item.content) bst.insert(item.content, item);
+
+      item.methods?.forEach((method) => {
+        bst.insert(method.name, item);
+        bst.insert(method.description, item);
+        if (method.content) bst.insert(method.content, item);
+      });
+    });
+
+    bstRef.current = bst;
+    setFilteredApiList(apiList); // Show all docs by default
+  }, []);
+
+  // When query changes, search the BST and show matching items
+  useEffect(() => {
+    if (!query.trim()) {
+      setFilteredApiList(apiList); // If search is empty, show all
+      return;
+    }
+
+    if (bstRef.current) {
+      const results = bstRef.current.search(query); // Search by keyword
+      const deduped = BST.deduplicateResults(results); // Remove duplicates
+      setFilteredApiList(deduped); // Show matched items
+    }
+  }, [query]);
 
   return (
     <div className="docs-page">
@@ -245,30 +172,42 @@ Supported input types include:
           placeholder="Search documentation..."
           className="search-input"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => setQuery(e.target.value)} // 💬 Live search
         />
       </section>
 
       <div className="docs-container">
+        {/* Sidebar with section buttons */}
         <aside className="docs-sidebar">
-          <ul>
-            {apiList.map((item, index) => (
-              <li key={item.name}>
-                <button onClick={() => toggleSection(index)}>{item.name}</button>
-                {expandedSection === index && (
-                  <ul>
-                    {(item.methods || []).map((method) => (
-                      <li key={method.name}>
-                        <a href={`#${method.name.toLowerCase()}`}>{method.name}</a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-        </aside>
+  <ul>
+    {apiList.map((item, index) => {
+      const isActive = filteredApiList.some((f) => f.name === item.name); // ✅ 검색 결과에 있는지 체크
 
+      return (
+        <li key={item.name}>
+          <button
+            className={`sidebar-item ${isActive ? 'active' : ''}`} // ✅ 클래스 조건 적용
+            onClick={() => toggleSection(index)}
+          >
+            {item.name}
+          </button>
+          {expandedSection === index && (
+            <ul>
+              {(item.methods || []).map((method) => (
+                <li key={method.name}>
+                  <a href={`#${method.name.toLowerCase()}`}>{method.name}</a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      );
+    })}
+  </ul>
+</aside>
+
+
+        {/* Main content section */}
         <main className="docs-content">
           <section className="docs-section">
             <h2>Installation</h2>
@@ -290,6 +229,8 @@ Supported input types include:
                     <h3 id={item.name.toLowerCase()}>{item.name}</h3>
                     <p>{item.description}</p>
                     <pre className="code-block"><code>{item.content}</code></pre>
+
+                    {/* Show each method under the class */}
                     {item.methods && item.methods.map((method) => (
                       <div key={method.name}>
                         <h4 id={method.name.toLowerCase()}>{method.name}</h4>

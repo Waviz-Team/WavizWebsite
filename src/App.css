@@ -326,3 +326,12 @@ code {
   display: inline-block;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
 }
+
+/* Highlight active sidebar item (from search) */
+.sidebar-item.active {
+  background-color: #e6f2ff;
+  font-weight: bold;
+  border-left: 4px solid #007acc;
+  color: #004e8a;
+}
+
