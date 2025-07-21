@@ -147,6 +147,7 @@ Supported input types include:
       content.toLowerCase().replace(/\s+/g, ' ').includes(q)
     );
   });
+  console.log(filteredApiList)
 
   return (
     <div className="docs-page">
