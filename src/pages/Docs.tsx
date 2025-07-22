@@ -8,23 +8,56 @@ export default function Docs() {
   const toggleSection = (index: number) => {
     setExpandedSection((prev) => (prev === index ? null : index));
   };
-  
+
   const normalizedQuery = query.toLowerCase().trim();
   const firstMatchRef = useRef<HTMLHeadingElement | null>(null);
-useEffect(() => {
-  if (!normalizedQuery) return;
 
-  const timeout = setTimeout(() => {
-    if (firstMatchRef.current) {
-      firstMatchRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-    }
-  }, 300); // 300ms debounce delay
+  useEffect(() => {
+    if (!normalizedQuery) return;
 
-  return () => clearTimeout(timeout); // Cleanup if user types again quickly
-}, [normalizedQuery]);
+    const timeout = setTimeout(() => {
+      // finds the first matching element
+      let firstMatch: HTMLElement | null = null;
+
+      // check class names first. not sure we should checvk this first or methods
+      for (const item of apiList) {
+        const classMatches =
+          item.name.toLowerCase().includes(normalizedQuery) ||
+          item.description.toLowerCase().includes(normalizedQuery) ||
+          item.content.toLowerCase().includes(normalizedQuery);
+
+        if (classMatches) {
+          firstMatch = document.getElementById(item.name.toLowerCase());
+          break;
+        }
+
+        // check methods if class doesn't match
+        if (item.methods) {
+          for (const method of item.methods) {
+            const methodMatches =
+              method.name.toLowerCase().includes(normalizedQuery) ||
+              method.description.toLowerCase().includes(normalizedQuery);
+
+            if (methodMatches) {
+              firstMatch = document.getElementById(method.name.toLowerCase());
+              break;
+            }
+          }
+          if (firstMatch) break;
+        }
+      }
+
+      // scroll to the first match
+      if (firstMatch) {
+        firstMatch.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    }, 600); // delay. need better solution here
+
+    return () => clearTimeout(timeout); 
+  }, [normalizedQuery]);
 
   const apiList = [
     {
@@ -240,16 +273,6 @@ Supported input types include:
     },
   ];
 
-  const filteredApiList = apiList.filter(({ name, description, content }) => {
-    const q = query.toLowerCase().trim();
-    return (
-      name.toLowerCase().includes(q) ||
-      description.toLowerCase().includes(q) ||
-      content.toLowerCase().replace(/\s+/g, ' ').includes(q)
-    );
-  });
-  console.log(filteredApiList)
-
   return (
     <div className="docs-page">
       <header className="docs-header">
@@ -302,41 +325,20 @@ Supported input types include:
           <section className="docs-section">
             <h2>API Overview</h2>
             <ul>
-              {apiList.map((item) => {
-
-                const classMatches =
-                  item.name.toLowerCase().includes(normalizedQuery) ||
-                  item.description.toLowerCase().includes(normalizedQuery) ||
-                  item.content.toLowerCase().includes(normalizedQuery);
-
-                // Check if any method inside the class matches
-                const methodMatches = (item.methods || []).some((method) =>
-                  method.name.toLowerCase().includes(normalizedQuery) ||
-                  method.description.toLowerCase().includes(normalizedQuery) 
-                );
-
-                const isMatch = normalizedQuery && (classMatches || methodMatches);
-
-                return (
-                  <li key={item.name} className="api-item">
-                    <h3
-                      id={item.name.toLowerCase()}
-                      ref={isMatch && firstMatchRef.current === null ? firstMatchRef : null}
-                    >
-                      {item.name}
-                    </h3>
-                    <p>{item.description}</p>
-                    <pre className="code-block"><code>{item.content}</code></pre>
-                    {item.methods && item.methods.map((method) => (
-                      <div key={method.name}>
-                        <h4 id={method.name.toLowerCase()}>{method.name}</h4>
-                        <p>{method.description}</p>
-                        <pre className="code-block"><code>{method.content}</code></pre>
-                      </div>
-                    ))}
-                  </li>
-                );
-              })}
+              {apiList.map((item) => (
+                <li key={item.name} className="api-item">
+                  <h3 id={item.name.toLowerCase().replace(/\s+/g, '')}>{item.name}</h3>
+                  <p>{item.description}</p>
+                  {item.content && <pre className="code-block"><code>{item.content}</code></pre>}
+                  {item.methods && item.methods.map((method) => (
+                    <div key={method.name}>
+                      <h4 id={method.name.toLowerCase().replace(/\s+/g, '')}>{method.name}</h4>
+                      <p>{method.description}</p>
+                      {method.content && <pre className="code-block"><code>{method.content}</code></pre>}
+                    </div>
+                  ))}
+                </li>
+              ))}
             </ul>
           </section>
         </main>
@@ -344,6 +346,3 @@ Supported input types include:
     </div>
   );
 }
-
-
-//  <p style={{ color: '#888' }}>No results found.</p>
