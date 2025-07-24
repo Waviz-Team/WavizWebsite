@@ -3,27 +3,27 @@ import '../App.css';
 import { BST } from '../components/bst';
 
 export default function Docs() {
-  // Search input from user
+  // User's search input
   const [query, setQuery] = useState('');
 
-  // Filtered API list based on search
+  // Filtered API data based on search input
   const [filteredApiList, setFilteredApiList] = useState<any[]>([]);
 
-  // Index of currently expanded section in sidebar
+  // Currently expanded section in sidebar
   const [expandedSection, setExpandedSection] = useState<number | null>(null);
 
-  // Currently highlighted method name
+  // Method name currently highlighted (for smooth UX)
   const [highlightedMethod, setHighlightedMethod] = useState<string | null>(null);
 
-  // Ref to BST instance used for search
+  // BST instance for search
   const bstRef = useRef<BST | null>(null);
 
-  // Toggle sidebar section open/closed
+  // Toggle open/collapse for sidebar section
   const toggleSection = (index: number) => {
     setExpandedSection((prev) => (prev === index ? null : index));
   };
 
-  // Main API data used to populate docs and sidebar
+  // Documentation content (section-level and method-level info)
   const apiList = [
     {
       name: 'Input Class',
@@ -75,27 +75,27 @@ export default function Docs() {
     }
   ];
 
-  // On mount: build BST for all searchable fields (name, description, methods)
+  // On component mount: construct the BST from all searchable fields
   useEffect(() => {
     const bst = new BST();
-    //section level bst search
     apiList.forEach((item) => {
+      // Insert section-level info
       bst.insert(item.name, item);
       bst.insert(item.description, item);
       if (item.content) bst.insert(item.content, item);
-      //method level bst search
+
+      // Insert method-level info
       item.methods?.forEach((method) => {
         bst.insert(method.name, item);
         bst.insert(method.description, item);
         if (method.content) bst.insert(method.content, item);
       });
     });
-
     bstRef.current = bst;
     setFilteredApiList(apiList);
   }, []);
 
-  // Run search whenever the query changes
+  // When the search query updates, re-run BST search
   useEffect(() => {
     if (!query.trim()) {
       setFilteredApiList(apiList);
@@ -109,7 +109,7 @@ export default function Docs() {
     }
   }, [query]);
 
-  // Automatically remove highlight after 3 seconds
+  // Remove highlight after 3 seconds
   useEffect(() => {
     if (highlightedMethod) {
       const timer = setTimeout(() => {
@@ -121,13 +121,13 @@ export default function Docs() {
 
   return (
     <div className="docs-page">
-      {/* Top heading */}
+      {/* Header */}
       <header className="docs-header">
         <h1>Waviz Documentation</h1>
         <p>Learn how to use Waviz for real-time audio visualization.</p>
       </header>
 
-      {/* Search box */}
+      {/* Search input */}
       <section className="docs-search">
         <input
           type="text"
@@ -139,7 +139,7 @@ export default function Docs() {
       </section>
 
       <div className="docs-container">
-        {/* Sidebar with collapsible sections */}
+        {/* Sidebar */}
         <aside className="docs-sidebar">
           <ul>
             {apiList.map((item, index) => {
@@ -171,9 +171,14 @@ export default function Docs() {
               );
             })}
           </ul>
+
+          {/* Back to Top button inside sidebar */}
+          <button className="scroll-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            ↑ Back to Top
+          </button>
         </aside>
 
-        {/* Main content area */}
+        {/* Main content */}
         <main className="docs-content">
           <section className="docs-section">
             <h2>Installation</h2>
