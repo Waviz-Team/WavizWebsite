@@ -129,6 +129,7 @@
   padding: 2rem;
 }
 
+
 /* Navbar */
 
 .logo {
@@ -384,15 +385,15 @@ code {
   margin-left: 1rem;
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
-  background-color: #222;
-  color: #fff;
+  background-color: #004080; /* blue */
+  color: #ffffff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
 .scroll-to-top:hover {
-  background-color: #444;
+ background-color: #0059b3;
 }
 
 /* ============================================

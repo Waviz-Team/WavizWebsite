@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="home">
       
-      {/* Hero section with logo and title */}
+      {/* upper section with logo and title */}
       <section className="section title-section">
         <div className="logo-text-wrapper">
           {/* Project logo */}
