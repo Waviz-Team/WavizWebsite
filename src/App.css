@@ -1,4 +1,4 @@
-/* src/App.css */
+/* --------- Home Page Styles --------- */
 
 .section {
   padding: 4rem 2rem;
@@ -82,7 +82,7 @@
   border-radius: 8px;
   font-family: 'Courier New', monospace;
   font-size: 1rem;
-  margin: 1rem auto;  
+  margin: 1rem auto;
   width: fit-content;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -104,7 +104,7 @@
 }
 
 .library-section {
-  background-color: #1b1d2a; 
+  background-color: #1b1d2a;
   color: #f4f4f4;
   padding: 4rem 2rem;
   text-align: center;
@@ -113,7 +113,7 @@
 .library-section h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  color: #62dafc; 
+  color: #62dafc;
 }
 
 .library-section p {
@@ -128,6 +128,8 @@
   font-size: 0.9rem;
   padding: 2rem;
 }
+
+/* Navbar */
 
 .logo {
   width: 120px;
@@ -159,6 +161,8 @@
   font-size: 1.5rem;
   color: #fff;
 }
+
+/* --------- Docs Page Styles --------- */
 
 .docs-page {
   max-width: 1400px;
@@ -194,9 +198,9 @@
   padding: 1rem;
   border-right: 1px solid #ccc;
   position: sticky;
-  top: 0; 
-  height: 100vh; 
-  overflow-y: auto; 
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .docs-sidebar ul {
@@ -262,6 +266,8 @@
   margin-bottom: 1rem;
   line-height: 1.75;
 }
+
+/* Code Block */
 
 .code-block {
   position: relative;
@@ -330,6 +336,8 @@ code {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
 }
 
+/* Sidebar Active Link & Highlights */
+
 .sidebar-item.active {
   background-color: #e6f2ff;
   font-weight: bold;
@@ -370,6 +378,7 @@ code {
 }
 
 /* Scroll to Top Button */
+
 .scroll-to-top {
   margin-top: 1rem;
   margin-left: 1rem;
@@ -386,5 +395,53 @@ code {
   background-color: #444;
 }
 
+/* ============================================
+     Common Reusable Utility Classes (Shared)
+   ============================================ */
 
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
 
+.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.title-heading {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.title-subtext {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: #cccccc;
+}
+
+.code-block {
+  position: relative;
+  background-color: #1e1e2f;
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+code {
+  background-color: #1e1e2f;
+  color: #c3f3ff;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  font-family: 'Courier New', Courier, monospace;
+  border-radius: 6px;
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
