@@ -1,10 +1,10 @@
-// src/components/TeamCard.tsx
 import React from 'react';
 
 interface TeamCardProps {
   name: string;
   email: string;
   github: string;
+  linkedin?: string;
   image: string;
   bgColorClass: string;
 }
@@ -13,6 +13,7 @@ const TeamCard: React.FC<TeamCardProps> = ({
   name,
   email,
   github,
+  linkedin,
   image,
   bgColorClass,
 }) => {
@@ -31,6 +32,16 @@ const TeamCard: React.FC<TeamCardProps> = ({
       >
         GitHub Profile
       </a>
+      {linkedin && (
+        <a
+          href={linkedin}
+          className="team-linkedin"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn Profile
+        </a>
+      )}
     </div>
   );
 };

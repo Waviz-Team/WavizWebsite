@@ -1,19 +1,29 @@
-// Docs.tsx
 import React, { useState, useEffect, useRef } from 'react';
 import '../App.css';
 import { BST } from '../components/bst';
 
 export default function Docs() {
+  // Search input from user
   const [query, setQuery] = useState('');
+
+  // Filtered API list based on search
   const [filteredApiList, setFilteredApiList] = useState<any[]>([]);
+
+  // Index of currently expanded section in sidebar
   const [expandedSection, setExpandedSection] = useState<number | null>(null);
+
+  // Currently highlighted method name
   const [highlightedMethod, setHighlightedMethod] = useState<string | null>(null);
+
+  // Ref to BST instance used for search
   const bstRef = useRef<BST | null>(null);
 
+  // Toggle sidebar section open/closed
   const toggleSection = (index: number) => {
     setExpandedSection((prev) => (prev === index ? null : index));
   };
 
+  // Main API data used to populate docs and sidebar
   const apiList = [
     {
       name: 'Input Class',
@@ -65,27 +75,33 @@ export default function Docs() {
     }
   ];
 
+  // On mount: build BST for all searchable fields (name, description, methods)
   useEffect(() => {
     const bst = new BST();
+    //section level bst search
     apiList.forEach((item) => {
       bst.insert(item.name, item);
       bst.insert(item.description, item);
       if (item.content) bst.insert(item.content, item);
+      //method level bst search
       item.methods?.forEach((method) => {
         bst.insert(method.name, item);
         bst.insert(method.description, item);
         if (method.content) bst.insert(method.content, item);
       });
     });
+
     bstRef.current = bst;
     setFilteredApiList(apiList);
   }, []);
 
+  // Run search whenever the query changes
   useEffect(() => {
     if (!query.trim()) {
       setFilteredApiList(apiList);
       return;
     }
+
     if (bstRef.current) {
       const results = bstRef.current.search(query);
       const deduped = BST.deduplicateResults(results);
@@ -93,6 +109,7 @@ export default function Docs() {
     }
   }, [query]);
 
+  // Automatically remove highlight after 3 seconds
   useEffect(() => {
     if (highlightedMethod) {
       const timer = setTimeout(() => {
@@ -104,11 +121,13 @@ export default function Docs() {
 
   return (
     <div className="docs-page">
+      {/* Top heading */}
       <header className="docs-header">
         <h1>Waviz Documentation</h1>
         <p>Learn how to use Waviz for real-time audio visualization.</p>
       </header>
 
+      {/* Search box */}
       <section className="docs-search">
         <input
           type="text"
@@ -120,6 +139,7 @@ export default function Docs() {
       </section>
 
       <div className="docs-container">
+        {/* Sidebar with collapsible sections */}
         <aside className="docs-sidebar">
           <ul>
             {apiList.map((item, index) => {
@@ -143,7 +163,6 @@ export default function Docs() {
                           >
                             {method.name}
                           </a>
-
                         </li>
                       ))}
                     </ul>
@@ -154,6 +173,7 @@ export default function Docs() {
           </ul>
         </aside>
 
+        {/* Main content area */}
         <main className="docs-content">
           <section className="docs-section">
             <h2>Installation</h2>

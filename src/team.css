@@ -6,7 +6,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -108,4 +108,18 @@
 .team-github {
   font-size: 0.9rem;
   color: #007bff;
+}
+
+.team-linkedin {
+  font-size: 0.9rem;
+  color: #0077b5;
+  display: block;
+  margin-top: 0.25rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.team-linkedin:hover {
+  color: #005582;
+  text-decoration: underline;
 }

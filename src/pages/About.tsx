@@ -1,14 +1,13 @@
-// src/pages/About.tsx
 import React from 'react';
 import TeamCard from '../components/TeamCard';
 import '../team.css';
 
-// Team member data
 const teamData = [
   {
     name: 'Victor Kim',
     email: 'sangmu.kim@gmail.com',
     github: 'https://github.com/starsang45',
+    linkedin: 'https://www.linkedin.com/in/victorsang/',
     image: '/assets/team/victor.png',
     bgColorClass: 'card-yellow',
   },
@@ -16,6 +15,7 @@ const teamData = [
     name: 'Cate Profir',
     email: 'example2@example.com',
     github: 'https://github.com/cateprofir13',
+    linkedin: 'https://linkedin.com/in/cateprofir13',
     image: '/assets/team/cat.jpg',
     bgColorClass: 'card-blue',
   },
@@ -23,14 +23,16 @@ const teamData = [
     name: 'Seung-Taek Oh',
     email: 'example3@example.com',
     github: 'https://github.com/ST-byte441',
+    linkedin: 'https://linkedin.com/in/seungtaekoh',
     image: '/assets/team/cat.jpg',
     bgColorClass: 'card-green',
   },
   {
     name: 'João Morgado',
-    email: 'example4@example.com',
+    email: 'jmrmorgado@gmail.com',
     github: 'https://github.com/j-morgado',
-    image: '/assets/team/cat.jpg',
+    linkedin: 'https://www.linkedin.com/in/morgadojoao/',
+    image: '/assets/team/joao.jpg',
     bgColorClass: 'card-purple',
   },
 ];
@@ -38,7 +40,6 @@ const teamData = [
 const About: React.FC = () => {
   return (
     <div className="about-container">
-      {/* About section */}
       <section className="about-section">
         <h2 className="section-title">About</h2>
         <p>
@@ -50,7 +51,6 @@ const About: React.FC = () => {
         </p>
       </section>
 
-      {/* Team section */}
       <section className="team-section">
         <h2 className="section-title">Meet the Team</h2>
         <div className="team-grid">
@@ -60,6 +60,7 @@ const About: React.FC = () => {
               name={member.name}
               email={member.email}
               github={member.github}
+              linkedin={member.linkedin}
               image={member.image}
               bgColorClass={member.bgColorClass}
             />
