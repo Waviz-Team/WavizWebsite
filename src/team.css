@@ -1,0 +1,125 @@
+/* ====== Container ====== */
+.about-container {
+  max-width: 1000px;
+  margin: 1rem auto; 
+  padding: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* ====== Section Titles ====== */
+.about-title,
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+/* ====== Gradient Text ====== */
+.gradient-text {
+  background: linear-gradient(90deg, #FF5AAD, #A66EFF, #56CCF2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+/* ====== About Section Text ====== */
+/* ====== About Section Text ====== */
+.about-section {
+  margin-bottom: 4rem;
+  font-family: 'Inter', 'Segoe UI', sans-serif; /* 변경된 폰트 */
+  text-align: left;
+  width: 100%;
+}
+
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* ====== Team Card Grid ====== */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ====== Team Card Styles ====== */
+.team-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 220px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* ====== Profile Image Container ====== */
+.image-container {
+  overflow: hidden;
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 1rem auto;
+}
+
+.team-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover .team-image {
+  transform: scale(1.1);
+}
+
+/* ====== Card Text ====== */
+.team-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.team-email {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.25rem;
+}
+
+.team-github {
+  font-size: 0.9rem;
+  color: #007bff;
+}
+
+.team-linkedin {
+  font-size: 0.9rem;
+  color: #0077b5;
+  display: block;
+  margin-top: 0.25rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.team-linkedin:hover {
+  color: #005582;
+  text-decoration: underline;
+}
