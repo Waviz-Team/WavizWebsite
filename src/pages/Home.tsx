@@ -1,58 +1,77 @@
-import React from 'react';
-import '../App.css'; // Global styles
-import logo from '../assets/logo.png'; // Project logo image
+// src/pages/Home.tsx
+import React, { useEffect, useState } from 'react';
+import '../App.css';
+import logo from '../assets/logo.png';
 
-// Home page component
 export default function Home() {
+  const [fadeIn, setFadeIn] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setFadeIn(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="home">
-      
-      {/* upper section with logo and title */}
+      {/* Title Section */}
       <section className="section title-section">
-        <div className="logo-text-wrapper">
-          {/* Project logo */}
+        <div className="video-background">
+          <video autoPlay loop muted playsInline>
+            <source src="/assets/video/test.mp4" type="video/mp4" />
+          </video>
+          <div className="overlay" />
+        </div>
+
+        <div className={`logo-text-wrapper ${fadeIn ? 'fade-in' : 'fade-in-start'}`}>
           <img src={logo} alt="Waviz Logo" className="logo" />
-          {/* Project name */}
           <h1 className="title-heading">Waviz</h1>
         </div>
-        {/* Short project description */}
-        <p className="title-subtext">Real-Time Audio Visualization Made Easy</p>
+        <p className={`title-subtext ${fadeIn ? 'fade-in' : 'fade-in-start'}`}>
+          Real-Time Audio Visualization Made Easy
+        </p>
       </section>
 
-      {/* Section showing main features */}
-      <section className="section features-section">
-        <h2>Main Features</h2>
+      {/* Features Section */}
+      <section className="features-section">
+        <h2>Features</h2>
         <ul>
-          <li>Real-time audio rendering</li>
-          <li>Customizable visual styles</li>
-          <li>Lightweight and powerful</li>
+          <li>Real-time waveform rendering</li>
+          <li>Modular and customizable components</li>
+          <li>Optimized performance with Web Audio API</li>
         </ul>
       </section>
 
-      {/* Section explaining how to use the library */}
-      <section className="section usage-section">
-        <h2>How to Use</h2>
-        <p>Install via npm and plug into your audio app in seconds.</p>
-        <code>npm install waviz</code>
+      {/* Usage Section */}
+      <section className="usage-section">
+        <h2>Ease of Use</h2>
+        <p>Install the package and begin visualizing audio effortlessly.</p>
+        <a
+          href="https://www.npmjs.com/package/waviz"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="code-link"
+        >
+          <code>npm install waviz</code>
+        </a>
       </section>
 
-      {/* Section describing the Plug-and-Play API */}
-      <section className="section library-section">
-        <h2>Powerful PnP Library</h2>
-        <p>Just Plug and Play—Simple API with powerful customization.</p>
-        <code>import Waviz from 'waviz'</code>
+
+      {/* Library Section */}
+      <section className="library-section">
+        <h2>Powerful Plug-and-Play Library</h2>
+        <p>
+          Waviz empowers developers to integrate stunning audio visualizations with just a few lines of code. No hassle. Just results.
+        </p>
+        <a href="/gallery" className="cta-button">Explore</a>
       </section>
 
-      {/* Footer with links and copyright */}
-      <footer className="section footer-section">
-        <p>© 2025 Waviz</p>
-        <div className="footer-links">
-          <a href="#privacy">Privacy</a> ·
-          <a href="#terms">Terms</a> ·
-          <a href="https://github.com/Waviz-Team" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
+
+      {/* Footer */}
+      <footer className="footer-section">
+        <p>&copy; 2025 Waviz Project. All rights reserved.</p>
       </footer>
-      
     </div>
   );
 }
+
+

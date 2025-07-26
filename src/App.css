@@ -6,12 +6,12 @@
 }
 
 .home {
-  position: relative; /* 배경 영상보다 위로 올리기 위한 기준점 */
-  z-index: 1;          /* background-video의 z-index가 -1이라면 이건 양수여야 함 */
+  position: relative; /*  */
+  z-index: 1;          /* background-video z-index */
   margin: 0;
   padding: 0;
   width: 100%;
-  color: white;        /* 배경 위에서 텍스트가 잘 보이게 */
+  color: white;        /* text on background */
 }
 
 
@@ -56,10 +56,12 @@
 }
 
 .features-section {
-  background: linear-gradient(to bottom, #f4f6ff, #e6ecff);
+  background: linear-gradient(to bottom, #ebe6f9, #dcd4f4);
   padding: 4rem 2rem;
   text-align: center;
+  color: #1a1a1a; 
 }
+
 
 .features-section h2 {
   font-size: 2rem;
@@ -78,34 +80,46 @@
   color: #333;
 }
 
-.usage-section code {
-  display: block;
-  background-color: #1e1e2f;
-  color: #00e0ff;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  font-family: 'Courier New', monospace;
-  font-size: 1rem;
-  margin: 1rem auto;
-  width: fit-content;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
 .usage-section {
-  background-color: #f0f4ff;
+  background: linear-gradient(180deg, #e9ecf6, #dbe5f1);
+  padding: 5rem 2rem;
   text-align: center;
-  padding: 4rem 2rem;
+  color: #111;
 }
 
 .usage-section h2 {
   font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
   margin-bottom: 1rem;
 }
 
 .usage-section p {
-  font-size: 1.1rem;
-  color: #333;
+  font-size: 1.2rem;
+  color: #34495e;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 2rem;
 }
+
+.usage-section code {
+  display: inline-block;
+  background-color: #1e1e2f;
+  color: #00f7ff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.usage-section code:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
 
 .library-section {
   background-color: #1b1d2a;
@@ -128,9 +142,11 @@
 }
 
 .footer-section {
-  background-color: #eeeeee;
+  background-color: #121212;  
+  color: #ccc;                
+  padding: 1rem;
+  text-align: center;
   font-size: 0.9rem;
-  padding: 2rem;
 }
 
 .background-video {
@@ -142,6 +158,55 @@
   object-fit: cover;
   z-index: -1;
 }
+
+.fade-in-start {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 2.5s ease-out, transform 2.5s ease-out;
+  visibility: hidden;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.code-link code {
+  background-color: #1e1e1e;
+  color: #00f7ff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: 'Courier New', monospace;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.code-link code:hover {
+  background-color: #2e2e2e;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #0077ff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: #005fd1;
+  transform: translateY(-2px);
+}
+
 
 /* Navbar */
 
@@ -175,6 +240,7 @@
   font-size: 1.5rem;
   color: #fff;
 }
+
 
 /* --------- Docs Page Styles --------- */
 
@@ -458,4 +524,42 @@ code {
   border-radius: 6px;
   display: inline-block;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.video-background {
+  position: absolute;         /* fixed → absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.home {
+  position: relative;
+  overflow: hidden;
+}
+
+.title-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* vertical center */
+  align-items: center;       /* horizontal center */
+  position: relative;
+  z-index: 1;                /* video up */
+  text-align: center;
+  padding: 2rem;
+  color: white;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45); /* video dark */
+  z-index: 0; /* up video, title down */
 }
