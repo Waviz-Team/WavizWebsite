@@ -7,7 +7,9 @@ export default function Home() {
   const [fadeIn, setFadeIn] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setFadeIn(true), 300);
+    const timer = setTimeout(() => {
+      setFadeIn(true);
+    }, 100); // 페이드 인을 트리거하는 지연 시간
     return () => clearTimeout(timer);
   }, []);
 
@@ -22,11 +24,11 @@ export default function Home() {
           <div className="overlay" />
         </div>
 
-        <div className={`logo-text-wrapper ${fadeIn ? 'fade-in' : 'fade-in-start'}`}>
+        <div className={`logo-text-wrapper ${fadeIn ? 'fade-in' : 'pre-fade'}`}>
           <img src={logo} alt="Waviz Logo" className="logo" />
           <h1 className="title-heading">Waviz</h1>
         </div>
-        <p className={`title-subtext ${fadeIn ? 'fade-in' : 'fade-in-start'}`}>
+        <p className={`title-subtext ${fadeIn ? 'fade-in' : 'pre-fade'}`}>
           Real-Time Audio Visualization Made Easy
         </p>
       </section>
@@ -55,7 +57,6 @@ export default function Home() {
         </a>
       </section>
 
-
       {/* Library Section */}
       <section className="library-section">
         <h2>Powerful Plug-and-Play Library</h2>
@@ -65,13 +66,10 @@ export default function Home() {
         <a href="/gallery" className="cta-button">Explore</a>
       </section>
 
-
-      {/* Footer */}
+      {/* Footer Section */}
       <footer className="footer-section">
         <p>&copy; 2025 Waviz Project. All rights reserved.</p>
       </footer>
     </div>
   );
 }
-
-

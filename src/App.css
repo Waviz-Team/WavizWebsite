@@ -563,3 +563,16 @@ code {
   background: rgba(0, 0, 0, 0.45); /* video dark */
   z-index: 0; /* up video, title down */
 }
+
+/* Fade-in Animation */
+.pre-fade {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 2.5s ease-in-out, transform 2.5s ease-in-out;
+}
+
