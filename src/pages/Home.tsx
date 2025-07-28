@@ -1,7 +1,7 @@
 // src/pages/Home.tsx
 import React, { useEffect, useState } from 'react';
 import '../App.css';
-import logo from '../assets/logo.png';
+import logo from '../assets/test.png';
 
 export default function Home() {
   const [fadeIn, setFadeIn] = useState(false);
