@@ -12,7 +12,7 @@ export default function Navbar() {
         <Link to="/gallery">Gallery</Link>
         <Link to="/about">Team</Link>
         <a
-          href="https://github.com/OSP1-CSVJ/Waviz"
+          href="https://github.com/Waviz-Team"
           target="_blank"
           rel="noopener noreferrer"
         >
