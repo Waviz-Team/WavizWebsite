@@ -13,18 +13,18 @@ const teamData = [
   },
   {
     name: 'Cate Profir',
-    email: 'example2@example.com',
+    email: 'cate.profir@gmail.com',
     github: 'https://github.com/cateprofir13',
     linkedin: 'https://www.linkedin.com/in/cate-profir/',
-    image: '/assets/team/cat.jpg',
+    image: '/assets/team/cate.jpeg',
     bgColorClass: 'card-blue',
   },
   {
     name: 'Seung-Taek Oh',
     email: 'example3@example.com',
     github: 'https://github.com/ST-byte441',
-    linkedin: '',
-    image: '/assets/team/cat.jpg',
+    linkedin: 'http://www.linkedin.com/in/st-oh',
+    image: '/assets/team/seungtaek2.png',
     bgColorClass: 'card-green',
   },
   {
