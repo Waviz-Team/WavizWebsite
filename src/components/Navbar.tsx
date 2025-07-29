@@ -1,10 +1,12 @@
 // src/components/Navbar.tsx
 import { Link } from 'react-router-dom';
+import Logo from '../../public/assets/Logo.png';
 
 export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-title">
+        <img src={Logo} alt="Waviz Logo" className="logo" />
         <Link to="/">Waviz</Link>
       </div>
       <div>
