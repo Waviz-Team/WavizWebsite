@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 111.49 39.19">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #f637b4;
+        stroke-width: 2.46px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        font-family: Relation-Bold, Relation;
+        font-size: 23.78px;
+        font-weight: 700;
+      }
+
+      .cls-1, .cls-3, .cls-5 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-3 {
+        stroke: #10c7ff;
+        stroke-width: 6.57px;
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-5 {
+        stroke: #0e4066;
+        stroke-width: 11.49px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <text class="cls-2" transform="translate(5.75 24.95)"><tspan x="0" y="0">Plug n Play</tspan></text>
+      <text class="cls-5" transform="translate(5.75 24.95)"><tspan x="0" y="0">Plug n Play</tspan></text>
+      <text class="cls-3" transform="translate(5.75 24.95)"><tspan x="0" y="0">Plug n Play</tspan></text>
+      <text class="cls-1" transform="translate(5.75 24.95)"><tspan x="0" y="0">Plug n Play</tspan></text>
+      <text class="cls-4" transform="translate(5.75 24.95)"><tspan x="0" y="0">Plug n Play</tspan></text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 41.29">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: .1em;
+      }
+
+      .cls-2 {
+        fill: #eefcff;
+        font-family: OctoberCompressedDL-Light, 'October Compressed Devanagari';
+        font-size: 36.68px;
+        font-weight: 300;
+      }
+
+      .cls-3 {
+        letter-spacing: .08em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <text class="cls-2" transform="translate(0 32.19)"><tspan class="cls-3" x="0" y="0">{</tspan><tspan class="cls-1" x="12.84" y="0">CORE}</tspan></text>
+  </g>
+</svg>
