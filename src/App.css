@@ -1,6 +1,18 @@
-/* --------- Home Page Styles --------- */
+:root{
+  --waviz_pink: #E34AB0;
+  --waviz_blue: #5BC4FA;
 
-.section {
+  --waviz_bgDarkBlue1: #161B25;
+  --waviz_bgDarkBlue2: #1b212e;
+
+  --waviz_bgLightBlue1: #afc2e7;
+  --waviz_bgLightBlue2: #e2ebfd;
+
+  --waviz_bgPink1: #fff4fb;
+  --waviz_bgPink2: #e3d9e0;
+}
+
+--------- Home Page Styles --------- .section {
   padding: 4rem 2rem;
   text-align: center;
 }
@@ -15,7 +27,7 @@
 }
 
 .title-section {
-  background: linear-gradient(135deg, #0a0a23, #1a1a40);
+  background: linear-gradient(135deg, var(--waviz_bgDarkBlue1), var(--waviz_bgDarkBlue2));
   color: white;
   padding: 6rem 2rem;
   text-align: center;
@@ -27,7 +39,7 @@
 }
 
 .logo {
-  width: 160px;
+  height: 80%;
   margin-bottom: 0.5rem;
   z-index: 2;
   position: relative;
@@ -61,7 +73,7 @@
 }
 
 .features-section {
-  background: linear-gradient(to bottom, #ebe6f9, #dcd4f4);
+  background: linear-gradient(to bottom, var(--waviz_bgPink1), var(--waviz_bgPink2));
   padding: 4rem 2rem;
   color: #1a1a1a;
   display: flex;
@@ -87,10 +99,13 @@
 }
 
 .usage-section {
-  background: linear-gradient(180deg, #e9ecf6, #dbe5f1);
+  background: linear-gradient(60deg, #d5dae3,#8994a9);
   padding: 5rem 2rem;
   text-align: center;
   color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .usage-section h2 {
@@ -115,7 +130,7 @@
   border-radius: 8px;
   font-size: 1rem;
   font-family: 'Courier New', monospace;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -126,11 +141,14 @@
 }
 
 .library-section {
-  background-color: #1b1d2a;
+  background-color: var(--waviz_bgDarkBlue1);
   color: #f4f4f4;
   padding: 4rem 2rem;
   text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .library-section::before {
@@ -389,7 +407,6 @@
 }
 
 .code-block::before {
-  content: 'Terminal';
   position: absolute;
   top: 0;
   left: 0;
@@ -421,8 +438,8 @@
 }
 
 code {
-  background-color: #1e1e2f;
-  color: #c3f3ff;
+  background-color: var(--waviz_bgDarkBlue1);
+  color: var(--waviz_blue);
   padding: 0.5rem 0.75rem;
   font-size: 0.9rem;
   font-family: 'Courier New', Courier, monospace;
@@ -601,10 +618,6 @@ code {
     font-size: 1rem;
   }
 
-  .logo {
-    width: 100px;
-  }
-
   .features-section,
   .usage-section,
   .library-section {
@@ -627,26 +640,45 @@ code {
   width: 70vw;
 }
 
-h1{
+.sectionBlock h4{
+color:#525252
+}
+
+h1 {
   font-size: 2.5rem;
 }
 
-.sectionReversed{
+.sectionReversed {
   flex-direction: row-reverse;
 }
 
-.sectionImage{
+.sectionImage {
   border-radius: 10px;
-  width:100vw;
+  width: 100vw;
   max-width: 400px;
+}
+
+.sectionLogo{
+  height:100px;
+}
+
+.usage-section .code-block{
+  min-width: 30rem;
+}
+
+.usage-section p{
+  text-align: left;
+}
+
+.library-section p{
+  text-align: left;
 }
 
 @media screen and (max-width: 768px) {
   .sectionBlock {
     flex-direction: column;
   }
-  .sectionReversed{
-  flex-direction:column;
+  .sectionReversed {
+    flex-direction: column;
+  }
 }
-}
-

@@ -35,20 +35,22 @@ export default function Home() {
       {/* Features Section */}
       <section className='features-section'>
         <div className='sectionHeader'>
-          <h1>Create Audio Visualizations Easily</h1>
+          <h1>Turn Sound Into Stunning Visuals</h1>
           <h3>
-            Waviz lets you integrate audio visualizations in your application in
-            under 10 lines of code
+            Built for developers, Waviz helps you render high-performance audio
+            visualizations with minimal setup and maximum flexibility.
           </h3>
         </div>
         <div className='sectionBlock'>
           <div>
             <h2>Real-Time Waveform Rendering</h2>
             <h4>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.{' '}
+              Waviz captures audio data in real time and renders smooth,
+              responsive waveforms directly onto your canvas. Whether you’re
+              building an audio player, DJ app, or immersive experience, Waviz
+              makes it easy to sync visuals with sound. Its lightweight engine
+              ensures high performance with minimal latency, even on
+              resource-constrained environments.
             </h4>
           </div>
           <div>
@@ -57,12 +59,15 @@ export default function Home() {
         </div>
         <div className='sectionBlock sectionReversed'>
           <div>
-            <h2>Real-Time Waveform Rendering</h2>
+            <h2>Optimized Performance with Web Audio API</h2>
             <h4>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.{' '}
+              Waviz is engineered on top of the Web Audio API to deliver
+              ultra-responsive, low-latency performance—ideal for real-time
+              applications. It taps directly into the browser’s native audio
+              processing capabilities, ensuring smooth visualization across
+              platforms. Whether you’re working with live input or pre-recorded
+              tracks, Waviz handles the heavy lifting so your visuals stay sharp
+              and your code stays clean.
             </h4>
           </div>
           <div>
@@ -71,12 +76,14 @@ export default function Home() {
         </div>
         <div className='sectionBlock'>
           <div>
-            <h2>Real-Time Waveform Rendering</h2>
+            <h2>Modular & Customizable React Components</h2>
             <h4>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.{' '}
+              Waviz offers a suite of React components designed for maximum
+              flexibility and easy integration. Whether you’re dropping a
+              waveform into a music player or layering visuals into a complex
+              UI, each component is modular, themeable, and built to slot
+              seamlessly into your React app. Tailor styles, behavior, and
+              performance with props—no need to rewrite from scratch.
             </h4>
           </div>
           <div>
@@ -87,14 +94,28 @@ export default function Home() {
 
       {/* Usage Section */}
       <section className='usage-section'>
-        <h2>Core</h2>
+        <img
+          src='/assets/logos/core.svg'
+          alt='Waviz Core logo'
+          className='sectionLogo'
+        />
         <div className='sectionBlock'>
           <div>
-            <h4>Get up and running in less that 10 lines of code</h4>
+            <p>
+              Waviz Core is designed to be both powerful and developer-friendly,
+              giving you full control over audio visualization without the
+              complexity. With a minimal setup—often under 10 lines of code—you
+              can render real-time visuals directly onto your canvas. Whether
+              you’re prototyping a quick demo or integrating into a full-scale
+              application, Waviz Core provides the flexibility and performance
+              you need to get up and running fast.
+            </p>
             <code>npm install waviz</code>
           </div>
           <div className='code-block'>
-            <p>import waviz new waviz waviz.render</p>
+            <p>import Waviz from '../Waviz'</p>
+            <p>const visualizer = new Waviz(canvas,audio)</p>
+            <p>visualizer.render()</p>
           </div>
         </div>
       </section>
@@ -102,14 +123,18 @@ export default function Home() {
       {/* Library Section */}
 
       <section className='library-section'>
+            <img src='/assets/logos/pnp.svg' alt='Waviz Plug-n-Play Logo' className='sectionLogo'/>
         <div className='sectionBlock'>
           <div>
-            <h2>Powerful Plug-n-play library</h2>
-            <h4>
-              Waviz empowers developers to integrate stunning audio
-              visualizations with just a few lines of code. No hassle. Just
-              results.
-            </h4>
+            <p>
+              Waviz Plug-n-Play brings the power of audio visualization into a modern
+              component-based architecture. With a growing set of modular,
+              prebuilt components, you can drop responsive visualizers directly
+              into your React app—no boilerplate required. Every component is
+              designed to be themeable, flexible, and easy to configure via
+              props, so you can focus on building experiences, not reinventing
+              infrastructure.
+            </p>
             <a href='/gallery' className='cta-button'>
               Explore
             </a>
@@ -122,7 +147,6 @@ export default function Home() {
 
       {/* Footer Section */}
       <footer className='footer-section'>
-        
         <p>&copy; 2025 Waviz Project. All rights reserved.</p>
       </footer>
     </div>
