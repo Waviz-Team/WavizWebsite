@@ -21,7 +21,7 @@ const teamData = [
   },
   {
     name: 'Seung-Taek Oh',
-    email: 'example3@example.com',
+    email: 'seungtaekoh5@gmail.com',
     github: 'https://github.com/ST-byte441',
     linkedin: 'http://www.linkedin.com/in/st-oh',
     image: '/assets/team/seungtaek2.png',

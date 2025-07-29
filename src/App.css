@@ -268,7 +268,8 @@
 
 .navbar a:hover {
   color: #ffffff;
-  border-bottom: 2px solid #ffffff;
+   border-bottom: none; /* line delete*/
+  text-decoration: none;
 }
 
 .navbar-title a {
@@ -510,7 +511,6 @@ code {
 
 /* --------- Footer Page Styles --------- */
 
-/* --------- Footer Page Styles --------- */
 
 .footer-section {
   background-color: #0F172A; /* 진한 남색 유지 */
@@ -796,3 +796,4 @@ h1 {
 .socialMediaIcons{
   width: 1rem;
 }
+

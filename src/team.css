@@ -29,10 +29,10 @@
 }
 
 /* ====== About Section Text ====== */
-/* ====== About Section Text ====== */
+
 .about-section {
   margin-bottom: 4rem;
-  font-family: 'Inter', 'Segoe UI', sans-serif; /* 변경된 폰트 */
+  font-family: 'Inter', 'Segoe UI', sans-serif; 
   text-align: left;
   width: 100%;
 }
@@ -47,13 +47,15 @@
 /* ====== Team Card Grid ====== */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 40px;
   justify-content: center;
-  align-items: center;
-  max-width: 800px;
+  align-items: start;
+  width: 100%;
+  max-width: 1000px;
   margin: 0 auto;
 }
+
 
 /* ====== Team Card Styles ====== */
 .team-card {
@@ -123,3 +125,52 @@
   color: #005582;
   text-decoration: underline;
 }
+
+/* 소셜 아이콘 스타일 */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  margin: 0.25rem;
+  text-decoration: none;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #0077b5; /* LinkedIn 파란색 */
+}
+
+.socialMediaIcons {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* 텍스트는 기본 숨김 */
+.icon-label {
+  display: none;
+  margin-left: 6px;
+  font-size: 0.9rem;
+}
+
+/* 호버 시만 텍스트 표시 */
+.social-icon:hover .icon-label {
+  display: inline;
+}
+
+.team-card a {
+  text-decoration: none;
+  color: #007bff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+  font-weight: 500;
+  justify-content: center;     
+  text-align: center;          
+  width: 100%;                
+}
+
+
+.team-card a:hover {
+  color: #0056b3;
+  text-decoration: none; }

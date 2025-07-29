@@ -5,12 +5,12 @@ import './Gallery.css';
 function Gallery() {
   const [selectedItem, setSelectedItem] = useState(null);
 
-  // This function runs when a gallery item is clicked
-  // It opens the modal with the clicked item's details
+  // Open modal with selected item
   const openModal = (item) => {
     setSelectedItem(item);
   };
- // This function closes the modal
+
+  // Close modal
   const closeModal = () => {
     setSelectedItem(null);
   };
@@ -18,7 +18,8 @@ function Gallery() {
   return (
     <div className="gallery-container">
       <h2>Waviz Gallery</h2>
-      {/* Show all gallery items in a grid layout */}
+
+      {/* Grid layout for gallery items */}
       <div className="gallery-grid">
         {galleryItems.map((item) => (
           <div
@@ -32,23 +33,44 @@ function Gallery() {
           </div>
         ))}
       </div>
- {/* If an item is selected, show a modal */}
+
+      {/* Modal */}
       {selectedItem && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <img
-              src={selectedItem.imageUrl}
-              alt={selectedItem.title}
-              className="modal-image"
-            />
-            <h3>{selectedItem.title}</h3>
-            <p>{selectedItem.description}</p>
-            <button className="close-button" onClick={closeModal}>
-              Close
-            </button>
-          </div>
+  <div className="modal-overlay" onClick={closeModal}>
+    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+
+      {/* 이미지 + How to use */}
+      <div className="modal-top">
+        <img
+          src={selectedItem.imageUrl}
+          alt={selectedItem.title}
+          className="modal-image"
+        />
+        <div className="modal-howto">
+          <strong>How to use</strong>
+          <p>{selectedItem.description}</p>
         </div>
-      )}
+      </div>
+
+      {/* Parameters + Code */}
+      <div className="modal-params-options">
+        <div className="section">
+          <strong>Parameters</strong>
+          <span className="param-label">param 1</span>: Lorem ipsum...<br />
+          <span className="param-label">param 2</span>: Lorem ipsum...
+        </div>
+
+        <div className="section">
+          <strong>Code</strong>
+          <code className="code-snippet">yourFunctionCall();</code>
+        </div>
+      </div>
+
+      <button className="close-button" onClick={closeModal}>Close</button>
+    </div>
+  </div>
+)}
+
     </div>
   );
 }

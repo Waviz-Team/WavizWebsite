@@ -7,7 +7,7 @@ export const galleryItems = [
   },
   {
     id: 2,
-    title: 'Waviz Visualization ',
+    title: 'Waviz Visualization 2 ',
     imageUrl: '/assets/gallery/waviz1.jpeg',
     description: 'Another stunning audio reactive effect.',
   },
