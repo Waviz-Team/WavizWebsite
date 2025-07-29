@@ -1,6 +1,8 @@
 :root{
   --waviz_pink: #E34AB0;
   --waviz_blue: #5BC4FA;
+  
+  --waviz_blueVar1: #2d99cf;
 
   --waviz_bgDarkBlue1: #161B25;
   --waviz_bgDarkBlue2: #1b212e;
@@ -145,7 +147,6 @@
   color: #f4f4f4;
   padding: 4rem 2rem;
   text-align: center;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -229,7 +230,7 @@
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(90deg, #4f46e5, #0077ff);
+  background: linear-gradient(90deg,var(--waviz_),var(--waviz_blue));
   box-shadow: 0 8px 20px rgba(0, 119, 255, 0.3);
   border-radius: 6px;
   text-decoration: none;
@@ -525,8 +526,6 @@ code {
   max-width: 1200px;
   margin: 0 auto;
   gap: 2rem;
-  
-  
 }
 
 .footer-column {
@@ -791,4 +790,9 @@ h1 {
   .sectionReversed {
     flex-direction: column;
   }
+}
+
+
+.socialMediaIcons{
+  width: 1rem;
 }

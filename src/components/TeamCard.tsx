@@ -30,7 +30,7 @@ const TeamCard: React.FC<TeamCardProps> = ({
         target="_blank"
         rel="noopener noreferrer"
       >
-        GitHub Profile
+         <img src='/assets/logos/githubBlack.svg'  className='socialMediaIcons'/> GitHub Profile
       </a>
       {linkedin && (
         <a
@@ -39,7 +39,7 @@ const TeamCard: React.FC<TeamCardProps> = ({
           target="_blank"
           rel="noopener noreferrer"
         >
-          LinkedIn Profile
+          <img src='/assets/logos/linkedInBlack.svg' className='socialMediaIcons'/> LinkedIn Profile
         </a>
       )}
     </div>
