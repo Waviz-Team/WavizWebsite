@@ -1,6 +1,7 @@
 // src/pages/Home.tsx
 import React, { useEffect, useState } from 'react';
 import '../App.css';
+// @ts-ignore
 import logo from '../assets/test.png';
 
 export default function Home() {
