@@ -16,7 +16,7 @@
 /* Gallery item card */
 .gallery-item {
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background: linear-gradient(135deg, #f9f9f9, #ffffff);
+  background: linear-gradient(135deg, #fcfcfc, #f7f7f7);
   border-radius: 10px;
   padding: 1rem;
   transition: all 0.3s ease;
@@ -124,7 +124,7 @@
   text-align: left;
 }
 
-.modal-params-options h3{
+.modal-params-options h3 {
   font-size: ;
 }
 
@@ -176,4 +176,8 @@
 
 .close-button:hover {
   background-color: #555;
+}
+
+.gallery-item-image {
+  border-radius: 10px;
 }

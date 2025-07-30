@@ -15,7 +15,8 @@ function Gallery() {
 
   return (
     <div className='gallery-container'>
-      <h2>Waviz Gallery</h2>
+      <img src='/assets/logos/pnp.svg' height='100rem'/>
+      <h2>React Component Gallery</h2>
 
       <div className='gallery-grid'>
         {galleryItems.map((item) => (
@@ -23,7 +24,7 @@ function Gallery() {
             key={item.id}
             className='gallery-item'
             onClick={() => openModal(item)}>
-            <img src={item.imageUrl} alt={item.title} />
+            <img src={item.imageUrl} alt={item.title} className='gallery-item-image'/>
             <h3>{item.title}</h3>
             <p>{item.description}</p>
           </div>

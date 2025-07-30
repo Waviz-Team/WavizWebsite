@@ -333,7 +333,9 @@ audio.addEventListener('play', () => {
   return (
     <div className="docs-page">
       <header className="docs-header">
-        <h1>Waviz Documentation</h1>
+        <img src="/assets/logos/coreDark.svg" height='100rem'/>
+        <h2>Documentation</h2>
+        <br></br>
         <p>Learn how to use Waviz for real-time audio visualization.</p>
       </header>
 

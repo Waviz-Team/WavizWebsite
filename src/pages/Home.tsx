@@ -60,7 +60,7 @@ export default function Home() {
         <div className='sectionBlock sectionReversed'>
           <div>
             <h2>Optimized Performance with Web Audio API</h2>
-            <h4>
+            <p>
               Waviz is engineered on top of the Web Audio API to deliver
               ultra-responsive, low-latency performance—ideal for real-time
               applications. It taps directly into the browser’s native audio
@@ -68,7 +68,7 @@ export default function Home() {
               platforms. Whether you’re working with live input or pre-recorded
               tracks, Waviz handles the heavy lifting so your visuals stay sharp
               and your code stays clean.
-            </h4>
+            </p>
           </div>
           <div>
             <img className='sectionImage' src='/assets/gallery/Bars3.gif' />
@@ -77,14 +77,14 @@ export default function Home() {
         <div className='sectionBlock'>
           <div>
             <h2>Modular & Customizable React Components</h2>
-            <h4>
+            <p>
               Waviz offers a suite of React components designed for maximum
               flexibility and easy integration. Whether you’re dropping a
               waveform into a music player or layering visuals into a complex
               UI, each component is modular, themeable, and built to slot
               seamlessly into your React app. Tailor styles, behavior, and
               performance with props—no need to rewrite from scratch.
-            </h4>
+            </p>
           </div>
           <div>
             <img className='sectionImage' src='/assets/gallery/Particles1.gif' />
