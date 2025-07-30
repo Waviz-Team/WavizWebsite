@@ -4,13 +4,29 @@ import './Gallery.css';
 
 function Gallery() {
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
+  const [copied, setCopied] = useState(false);
 
   const openModal = (item: GalleryItem) => {
     setSelectedItem(item);
+    setCopied(false); // copy renew when a new item is selected
   };
 
   const closeModal = () => {
     setSelectedItem(null);
+    setCopied(false);
+  };
+
+  const handleCopy = () => {
+    if (navigator.clipboard && selectedItem?.code) {
+      navigator.clipboard.writeText(selectedItem.code)
+        .then(() => {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 1500);
+        })
+        .catch((err) => {
+          console.error('Copy failed:', err);
+        });
+    }
   };
 
   return (
@@ -49,13 +65,10 @@ function Gallery() {
             <div className='modal-params-options'>
               <div className='section'>
                 <h3>Parameters</h3>
-                {/* Check if 'selectedItem.params' exists and has any items */}
                 {selectedItem.params?.length ? (
                   selectedItem.params.map((param, index) => (
                     <div key={index}>
-                      {/* Check if 'selectedItem.params' exists and has any items */}
-                      <span className='param-label'>{param.name}</span>:{' '}
-                      {param.value}
+                      <span className='param-label'>{param.name}</span>: {param.value}
                     </div>
                   ))
                 ) : (
@@ -65,9 +78,16 @@ function Gallery() {
 
               <div className='section'>
                 <h3>Code</h3>
-                <code className='code-snippet'>
-                  {selectedItem.code || 'No code available.'}
-                </code>
+                <div className='code-container'>
+                  <code className='code-snippet'>
+                    {selectedItem.code || 'No code available.'}
+                  </code>
+                  {selectedItem.code && (
+                    <button className='copy-button' onClick={handleCopy}>
+                      {copied ? 'Copied!' : 'Copy'}
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
 
