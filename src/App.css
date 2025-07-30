@@ -1,10 +1,10 @@
-:root{
-  --waviz_pink: #E34AB0;
-  --waviz_blue: #5BC4FA;
-  
+:root {
+  --waviz_pink: #e34ab0;
+  --waviz_blue: #5bc4fa;
+
   --waviz_blueVar1: #2d99cf;
 
-  --waviz_bgDarkBlue1: #161B25;
+  --waviz_bgDarkBlue1: #161b25;
   --waviz_bgDarkBlue2: #1b212e;
 
   --waviz_bgLightBlue1: #afc2e7;
@@ -29,7 +29,11 @@
 }
 
 .title-section {
-  background: linear-gradient(135deg, var(--waviz_bgDarkBlue1), var(--waviz_bgDarkBlue2));
+  background: linear-gradient(
+    135deg,
+    var(--waviz_bgDarkBlue1),
+    var(--waviz_bgDarkBlue2)
+  );
   color: white;
   padding: 6rem 2rem;
   text-align: center;
@@ -68,14 +72,17 @@
 
 .title-subtext {
   font-size: 1.25rem;
-  max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
   color: #cccccc;
 }
 
 .features-section {
-  background: linear-gradient(to bottom, var(--waviz_bgPink1), var(--waviz_bgPink2));
+  background: linear-gradient(
+    to bottom,
+    var(--waviz_bgPink1),
+    var(--waviz_bgPink2)
+  );
   padding: 4rem 2rem;
   color: #1a1a1a;
   display: flex;
@@ -101,7 +108,7 @@
 }
 
 .usage-section {
-  background: linear-gradient(60deg, #d5dae3,#8994a9);
+  background: linear-gradient(60deg, #d5dae3, #8994a9);
   padding: 5rem 2rem;
   text-align: center;
   color: #111;
@@ -230,7 +237,7 @@
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(90deg,var(--waviz_),var(--waviz_blue));
+  background: linear-gradient(90deg, var(--waviz_), var(--waviz_blue));
   box-shadow: 0 8px 20px rgba(0, 119, 255, 0.3);
   border-radius: 6px;
   text-decoration: none;
@@ -268,7 +275,7 @@
 
 .navbar a:hover {
   color: #ffffff;
-   border-bottom: none; /* line delete*/
+  border-bottom: none; /* line delete*/
   text-decoration: none;
 }
 
@@ -511,9 +518,8 @@ code {
 
 /* --------- Footer Page Styles --------- */
 
-
 .footer-section {
-  background-color: #0F172A; /* 진한 남색 유지 */
+  background-color: #0f172a; /* 진한 남색 유지 */
   padding: 3rem 2rem;
   border-top: 1px solid #334155; /* 더 어두운 회색으로 변경해 자연스럽게 */
 }
@@ -535,7 +541,7 @@ code {
 }
 
 .footer-column h3 {
-  color: #F8FAFC; /* 제목은 더 밝게 */
+  color: #f8fafc; /* 제목은 더 밝게 */
   font-weight: 600;
 }
 
@@ -551,17 +557,17 @@ code {
 
 .footer-column a {
   text-decoration: none;
-  color: #CBD5E1; /* 밝은 회색으로 변경 */
+  color: #cbd5e1; /* 밝은 회색으로 변경 */
   transition: color 0.2s ease;
 }
 
 .footer-column a:hover {
-  color: #FFFFFF; /* hover 시 더 밝게 */
+  color: #ffffff; /* hover 시 더 밝게 */
   text-decoration: underline;
 }
 
 .footer-column p {
-  color: #94A3B8; /* '2025, all rights reserved' */
+  color: #94a3b8; /* '2025, all rights reserved' */
   margin-top: 0.5rem;
 }
 
@@ -585,8 +591,6 @@ code {
   fill: #fff;
   transform: scale(1.1);
 }
-
-
 
 .circle-icon {
   width: 16px;
@@ -615,7 +619,6 @@ code {
   }
 }
 
-
 /* ============================================
      Common Reusable Utility Classes (Shared)
    ============================================ */
@@ -639,8 +642,7 @@ code {
 }
 
 .title-subtext {
-  font-size: 1.25rem;
-  max-width: 600px;
+  font-size: 2rem;
   margin: 0 auto;
   line-height: 1.6;
   color: #cccccc;
@@ -749,8 +751,8 @@ code {
   width: 70vw;
 }
 
-.sectionBlock h4{
-color:#525252
+.sectionBlock h4 {
+  color: #525252;
 }
 
 h1 {
@@ -767,19 +769,19 @@ h1 {
   max-width: 400px;
 }
 
-.sectionLogo{
-  height:100px;
+.sectionLogo {
+  height: 100px;
 }
 
-.usage-section .code-block{
+.usage-section .code-block {
   min-width: 30rem;
 }
 
-.usage-section p{
+.usage-section p {
   text-align: left;
 }
 
-.library-section p{
+.library-section p {
   text-align: left;
 }
 
@@ -792,8 +794,12 @@ h1 {
   }
 }
 
-
-.socialMediaIcons{
+.socialMediaIcons {
   width: 1rem;
 }
 
+
+.mainLogo{
+  width: 25vw;
+  padding: 1rem;
+}

@@ -19,17 +19,17 @@ export default function Home() {
       <section className='section title-section'>
         <div className='video-background'>
           <video autoPlay loop muted playsInline>
-            <source src='/assets/video/MainVideo1.mp4' type='video/mp4' />
+            <source src='/assets/video/homeVideo.mp4' type='video/mp4' />
           </video>
-          <div className='overlay' />
+          
         </div>
 
+          <img src='/assets/logos/waviz.svg' className='mainLogo'/>
         <div className={`logo-text-wrapper ${fadeIn ? 'fade-in' : 'pre-fade'}`}>
-          <h1 className='title-heading'>Waviz</h1>
         </div>
-        <p className={`title-subtext ${fadeIn ? 'fade-in' : 'pre-fade'}`}>
+        <h1 className={`title-subtext ${fadeIn ? 'fade-in' : 'pre-fade'}`}>
           Real-Time Audio Visualization Made Easy
-        </p>
+        </h1>
       </section>
 
       {/* Features Section */}
