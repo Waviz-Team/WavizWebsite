@@ -14,7 +14,7 @@ export default function Navbar() {
         <Link to='/gallery'>Gallery</Link>
         <Link to='/about'>Team</Link>
         <a
-          href='https://github.com/Waviz-Team'
+          href='https://github.com/Waviz-Team/Waviz'
           target='_blank'
           rel='noopener noreferrer'>
           GitHub
