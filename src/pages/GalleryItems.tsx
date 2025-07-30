@@ -31,12 +31,12 @@ export const galleryItems: GalleryItem[] = [
     id: 2,
     title: 'Waviz Visualization 2',
     imageUrl: '/assets/gallery/Bars2.gif',
-    description: 'Another stunning audio reactive effect.',
+    description: 'Another stunning audio reactive effect using hanning windowing.',
     params: [
-      { name: 'speed', value: '1.5x' },
-      { name: 'intensity', value: 'medium' },
+      { name: 'Color', value: 'String: Accepts a color in CSS, Hex, or RGB format' },
+      { name: 'Bars', value: 'Number: Number of bars to display' },
     ],
-    code: 'wavizBars2({ speed: 1.5, intensity: "medium" });',
+    code: "wavizBars2('#E93EB7', 40);",
   },
   {
     id: 3,
@@ -44,10 +44,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Bars3.gif',
     description: 'Visualization with custom waveform presets.',
     params: [
-      { name: 'preset', value: 'waveform-x' },
-      { name: 'duration', value: '60s' },
+      { name: 'Color1', value: 'String: Start color for gradient' },
+      { name: 'Color2', value: 'String: End color for gradient' },
     ],
-    code: 'wavizCustom({ preset: "waveform-x", duration: 60 });',
+    code: "wavizBars3('#0088ff', '#00ffd5');",
   },
   {
     id: 4,
@@ -55,10 +55,11 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Bars4.gif',
     description: 'Colorful ring-based sound animation.',
     params: [
-      { name: 'ringCount', value: '5' },
-      { name: 'color', value: 'rainbow' },
+      { name: 'Color1', value: 'String: Start color for gradient' },
+      { name: 'Color2', value: 'String: End color for gradient' },
+      { name: 'Radius', value: 'Number: Radius for polar arrangement' },
     ],
-    code: 'wavizRings({ ringCount: 5, color: "rainbow" });',
+    code: "wavizBars4('#E93EB7', '#24B9F7', 120);",
   },
   {
     id: 5,
@@ -66,10 +67,11 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Bars5.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color1', value: 'String: Start color for gradient' },
+      { name: 'Color2', value: 'String: End color for gradient' },
+      { name: 'Bars', value: 'Number: Number of bars' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizBars5('#E93EB7', '#24B9F7', 20);",
   },
   {
     id: 6,
@@ -77,10 +79,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Bars6.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color', value: 'String: Accepts a color in CSS, Hex, or RGB format' },
+      { name: 'Bars', value: 'Number: Number of bars' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizBars6('#E93EB7', 11);",
   },
   {
     id: 7,
@@ -88,10 +90,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Dots1.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color', value: 'String: Accepts a color in CSS, Hex, or RGB format' },
+      { name: 'Dots', value: 'Number: Number of dots' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizDots1('#ff00ff', 32);",
   },
   {
     id: 8,
@@ -99,10 +101,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Dots2.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color1', value: 'String: Start color for linear gradient' },
+      { name: 'Color2', value: 'String: End color for linear gradient' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizDots2('#E93EB7', '#24B9F7');",
   },
   {
     id: 9,
@@ -110,10 +112,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Dots3.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color1', value: 'String: Start color for radial gradient' },
+      { name: 'Color2', value: 'String: End color for radial gradient' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizDots3('#E93EB7', '#24B9F7');",
   },
   {
     id: 10,
@@ -121,10 +123,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Dots4.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color1', value: 'String: Start color for radial gradient' },
+      { name: 'Color2', value: 'String: End color for radial gradient' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizDots4('#E93EB7', '#24B9F7');",
   },
   {
     id: 11,
@@ -132,10 +134,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Mixed1.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color', value: 'String: Accepts a color in CSS, Hex, or RGB format' },
+      { name: 'Bars', value: 'Number: Number of bars' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizMixed1('#00BFFF', 200);",
   },
   {
     id: 12,
@@ -143,10 +145,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Mixed2.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Palette', value: 'Array: Array of color strings for palette' },
+      { name: 'Color', value: 'String: Color for second layer' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizMixed2(['#E91E63', '#9C27B0'], '#00bcd4');",
   },
   {
     id: 13,
@@ -154,10 +156,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Mixed3.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color1', value: 'String: Start color for radial gradient' },
+      { name: 'Color2', value: 'String: End color for radial gradient' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizMixed3('#0088ff', '#00ffd5');",
   },
   {
     id: 14,
@@ -165,10 +167,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Mixed4.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color1', value: 'String: Start color for gradient' },
+      { name: 'Color2', value: 'String: End color for gradient' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizMixed4('#70044a', '#f84791');",
   },
   {
     id: 15,
@@ -176,10 +178,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Mixed5.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color', value: 'String: Accepts a color in CSS, Hex, or RGB format' },
+      { name: 'Bars', value: 'Number: Number of bars' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizMixed5('#57BBDE', 30);",
   },
   {
     id: 16,
@@ -187,10 +189,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Mixed6.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color1', value: 'String: Start color for gradient' },
+      { name: 'Color2', value: 'String: End color for gradient' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizMixed6('yellow', 'red');",
   },
   {
     id: 17,
@@ -198,10 +200,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Mixed7.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color1', value: 'String: Start color for gradient' },
+      { name: 'Color2', value: 'String: End color for gradient' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizMixed7('white', 'teal');",
   },
   {
     id: 18,
@@ -209,10 +211,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Mixed8.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color1', value: 'String: Start color for gradient' },
+      { name: 'Color2', value: 'String: End color for gradient' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizMixed8('#00FFFF', '#8A2BE2');",
   },
   {
     id: 19,
@@ -220,10 +222,9 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Mixed9.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color', value: 'String: Accepts a color in CSS, Hex, or RGB format' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizMixed9('#7afff2');",
   },
   {
     id: 20,
@@ -231,10 +232,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Mixed10.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color1', value: 'String: Start color for radial gradient' },
+      { name: 'Color2', value: 'String: End color for radial gradient' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizMixed10('#315f00', '#adffc1');",
   },
   {
     id: 21,
@@ -242,10 +243,9 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Mixed11.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color', value: 'String: Accepts a color in CSS, Hex, or RGB format' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizMixed11('#7afff2');",
   },
   {
     id: 22,
@@ -253,10 +253,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Particles1.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color1', value: 'String: Start color for radial gradient (CSS, Hex, or RGB format)' },
+      { name: 'Color2', value: 'String: End color for radial gradient (CSS, Hex, or RGB format)' }
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizParticles1('#E93EB7', '#24B9F7');",
   },
   {
     id: 23,
@@ -264,10 +264,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Wave1.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color', value: 'String: Accepts a color in CSS, Hex, or RGB format' },
+      { name: 'Samples', value: 'Number: Number of samples (resolution)' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizWave1('#E93EB7', 400);",
   },
   {
     id: 24,
@@ -275,10 +275,10 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Wave2.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color1', value: 'String: Start color for linear gradient' },
+      { name: 'Color2', value: 'String: End color for linear gradient' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizWave2('#E93EB7', '#24B9F7');",
   },
   {
     id: 25,
@@ -286,10 +286,11 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Wave3.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color1', value: 'String: Color for first line' },
+      { name: 'Color2', value: 'String: Color for second line' },
+      { name: 'Color3', value: 'String: Color for third line' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizWave3('#2F4FC4', '#DED414', '#DE3914');",
   },
   {
     id: 26,
@@ -297,10 +298,9 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Wave4.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color', value: 'String: Accepts a color in CSS, Hex, or RGB format' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizWave4('#eb1b00');",
   },
   {
     id: 27,
@@ -308,10 +308,12 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Wave5.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color1', value: 'String: Start color for linear gradient' },
+      { name: 'Color2', value: 'String: End color for linear gradient' },
+      { name: 'Radius', value: 'Number: Radius for polar arrangement' },
+      { name: 'Angle', value: 'Number: Rotation angle' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizWave5('red', 'orange', 100, 90);",
   },
   {
     id: 28,
@@ -319,10 +321,11 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Wave6.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color1', value: 'String: Start color for linear gradient' },
+      { name: 'Color2', value: 'String: End color for linear gradient' },
+      { name: 'Radius', value: 'Number: Radius for polar arrangement' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizWave6('white', '#00BFFF', 100);",
   },
   {
     id: 29,
@@ -330,9 +333,8 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Wave7.gif',
     description: 'Visualization description',
     params: [
-{name: 'Param 1', value:'Param 1 Type: Param 1 Description'},
-{name: 'Param 2', value:'Param 2 Type: Param 2 Description'}
+      { name: 'Color', value: 'String: Accepts a color in CSS, Hex, or RGB format' },
     ],
-    code: 'wavizOrb({ glow: true, sync: "beats" });',
+    code: "wavizWave7('#eb1b00');",
   },
 ];
