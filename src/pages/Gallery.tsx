@@ -1,16 +1,14 @@
 import { useState } from 'react';
-import { galleryItems } from './GalleryItems';
+import { galleryItems, GalleryItem } from './galleryItems';
 import './Gallery.css';
 
 function Gallery() {
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
 
-  // Open modal with selected item
-  const openModal = (item) => {
+  const openModal = (item: GalleryItem) => {
     setSelectedItem(item);
   };
 
-  // Close modal
   const closeModal = () => {
     setSelectedItem(null);
   };
@@ -19,7 +17,6 @@ function Gallery() {
     <div className='gallery-container'>
       <h2>Waviz Gallery</h2>
 
-      {/* Grid layout for gallery items */}
       <div className='gallery-grid'>
         {galleryItems.map((item) => (
           <div
@@ -33,11 +30,9 @@ function Gallery() {
         ))}
       </div>
 
-      {/* Modal */}
       {selectedItem && (
         <div className='modal-overlay' onClick={closeModal}>
           <div className='modal-content' onClick={(e) => e.stopPropagation()}>
-            {/* 이미지 + How to use */}
             <div className='modal-top'>
               <img
                 src={selectedItem.imageUrl}
@@ -50,20 +45,28 @@ function Gallery() {
               </div>
             </div>
 
-            {/* Parameters + Code */}
-
             <div className='modal-params-options'>
               <div className='section'>
                 <h3>Parameters</h3>
-
-                <span className='param-label'>param 1</span>: Lorem ipsum...
-                <br />
-                <span className='param-label'>param 2</span>: Lorem ipsum...
+                {/* Check if 'selectedItem.params' exists and has any items */}
+                {selectedItem.params?.length ? (
+                  selectedItem.params.map((param, index) => (
+                    <div key={index}>
+                      {/* Check if 'selectedItem.params' exists and has any items */}
+                      <span className='param-label'>{param.name}</span>:{' '}
+                      {param.value}
+                    </div>
+                  ))
+                ) : (
+                  <p>No parameters available.</p>
+                )}
               </div>
 
               <div className='section'>
                 <h3>Code</h3>
-                <code className='code-snippet'>yourFunctionCall();</code>
+                <code className='code-snippet'>
+                  {selectedItem.code || 'No code available.'}
+                </code>
               </div>
             </div>
 
