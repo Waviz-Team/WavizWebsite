@@ -195,20 +195,20 @@
 /* 복사 버튼 스타일 */
 .copy-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #007bff;
-  color: white;
+  top: 0.5rem;
+  right: 0.75rem;
+  background-color: #1b263b;
+  color: #f1f1f1;
   border: none;
-  padding: 6px 12px;
+  padding: 0.3rem 0.6rem;
   border-radius: 4px;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .copy-button:hover {
-  background: #0056b3;
+  background-color: #415a77;
 }
 
 .gallery-item-image {

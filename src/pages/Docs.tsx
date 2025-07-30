@@ -416,7 +416,16 @@ audio.addEventListener('play', () => {
                       >
                         <h4>{method.name}</h4>
                         <p>{method.description}</p>
-                        <pre className="code-block"><code>{method.content}</code></pre>
+                        <pre className="code-block">
+                          <code>{method.content}</code>
+                          <button
+                            className="copy-button"
+                            onClick={() => navigator.clipboard.writeText(method.content || '')}
+                          >
+                            Copy
+                          </button>
+                        </pre>
+
                       </div>
                     ))}
                   </li>
