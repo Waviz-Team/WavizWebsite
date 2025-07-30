@@ -1,11 +1,12 @@
-// tsconfig.node.json
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "composite": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "lib": ["DOM", "ES2015", "ES2016", "ES2017"],
+    "types": ["node"]
   },
   "include": ["vite.config.ts"]
 }
