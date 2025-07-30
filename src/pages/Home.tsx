@@ -19,7 +19,7 @@ export default function Home() {
       <section className='section title-section'>
         <div className='video-background'>
           <video autoPlay loop muted playsInline>
-            <source src='/assets/video/test.mp4' type='video/mp4' />
+            <source src='/assets/video/MainVideo1.mp4' type='video/mp4' />
           </video>
           <div className='overlay' />
         </div>
@@ -54,7 +54,7 @@ export default function Home() {
             </h4>
           </div>
           <div>
-            <img className='sectionImage' src='/assets/gallery/waviz1.jpeg' />
+            <img className='sectionImage' src='/assets/gallery/Wave2.gif' />
           </div>
         </div>
         <div className='sectionBlock sectionReversed'>
@@ -71,7 +71,7 @@ export default function Home() {
             </h4>
           </div>
           <div>
-            <img className='sectionImage' src='/assets/gallery/waviz1.jpeg' />
+            <img className='sectionImage' src='/assets/gallery/Bars3.gif' />
           </div>
         </div>
         <div className='sectionBlock'>
@@ -87,7 +87,7 @@ export default function Home() {
             </h4>
           </div>
           <div>
-            <img className='sectionImage' src='/assets/gallery/waviz1.jpeg' />
+            <img className='sectionImage' src='/assets/gallery/Particles1.gif' />
           </div>
         </div>
       </section>
@@ -140,7 +140,7 @@ export default function Home() {
             </a>
           </div>
           <div>
-            <img className='sectionImage' src='/assets/gallery/waviz1.jpeg' />
+            <img className='sectionImage' src='/assets/gallery/Mixed6.gif' />
           </div>
         </div>
       </section>

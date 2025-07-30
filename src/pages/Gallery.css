@@ -22,7 +22,6 @@
   transition: all 0.3s ease;
 }
 
-
 .gallery-item:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -88,12 +87,11 @@
 .modal-image {
   width: 200px;
   height: 200px;
-  object-fit: cover;     /* square */
+  object-fit: cover; /* square */
   border-radius: 8px;
   background-color: #f5f5f5;
   flex-shrink: 0;
 }
-
 
 .modal-howto {
   flex: 1;
@@ -103,11 +101,31 @@
   margin-top: 0.2rem;
 }
 
+.modal-howto h1 {
+  font-size: 1.5rem;
+  text-align: left;
+}
+.modal-howto p {
+  text-align: left;
+}
+
+.modal
+
 /* 파라미터 + 코드 나란히 */
 .modal-params-options {
   display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  /* gap: 1.5rem; */
+  /* flex-wrap: wrap; */
+}
+
+.modal-params-options .section {
+  padding: 1rem;
+  text-align: left;
+}
+
+.modal-params-options h3{
+  font-size: 1.2rem;
 }
 
 .section {
@@ -160,4 +178,3 @@
 .close-button:hover {
   background-color: #555;
 }
-
