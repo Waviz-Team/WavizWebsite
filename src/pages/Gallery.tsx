@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { galleryItems, GalleryItem } from './galleryItems';
+import { galleryItems, GalleryItem } from './GalleryItems';
 import './Gallery.css';
 
 function Gallery() {
