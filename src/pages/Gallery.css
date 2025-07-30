@@ -125,14 +125,13 @@
 }
 
 .modal-params-options h3{
-  font-size: 1.2rem;
+  font-size: ;
 }
 
 .section {
   flex: 1 1 45%;
   font-size: 0.85rem;
   line-height: 1.4;
-  margin-top: 0.4rem;
   color: #222;
 }
 

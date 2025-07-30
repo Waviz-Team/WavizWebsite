@@ -44,14 +44,14 @@ export default function Home() {
         <div className='sectionBlock'>
           <div>
             <h2>Real-Time Waveform Rendering</h2>
-            <h4>
+            <p>
               Waviz captures audio data in real time and renders smooth,
               responsive waveforms directly onto your canvas. Whether you’re
               building an audio player, DJ app, or immersive experience, Waviz
               makes it easy to sync visuals with sound. Its lightweight engine
               ensures high performance with minimal latency, even on
               resource-constrained environments.
-            </h4>
+            </p>
           </div>
           <div>
             <img className='sectionImage' src='/assets/gallery/Wave2.gif' />
