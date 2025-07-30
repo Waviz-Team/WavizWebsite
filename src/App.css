@@ -8,7 +8,7 @@
   --waviz_bgDarkBlue2: #222b41;
   --waviz_bgDarkBlue3: #3d4d76;
   
-  --waviz_bgLightBlue1: #afc2e7;
+  --waviz_bgLightBlue1: #ccdaf6;
   --waviz_bgLightBlue2: #e2ebfd;
   --waviz_bgLightBlue3: #8ca5d6;
 
@@ -94,6 +94,10 @@
   align-items: center;
 }
 
+.features-section p{
+  color: var(--waviz_bgDarkBlue3);
+}
+
 .features-section h2 {
   font-size: 2rem;
   color: var(--waviz_bgDarkBlue3);
@@ -129,7 +133,7 @@
 
 .usage-section p {
   font-size: 1.2rem;
-  color: #34495e;
+  color: var(--waviz_bgDarkBlue3);
   font-weight: 500;
   line-height: 1.6;
   margin-bottom: 2rem;
@@ -162,6 +166,10 @@
   align-items: center;
 }
 
+.usage-section .code-block p{
+  color: var(--waviz_bgLightBlue3);
+}
+
 .library-section::before {
   content: '';
   position: absolute;
@@ -179,6 +187,7 @@
 }
 
 .library-section p {
+  color: var(--waviz_bgLightBlue1);
   font-size: 1.2rem;
   line-height: 1.6;
   max-width: 700px;
@@ -240,17 +249,17 @@
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(90deg, var(--waviz_), var(--waviz_blue));
-  box-shadow: 0 8px 20px rgba(0, 119, 255, 0.3);
+  background: linear-gradient(90deg, var(--waviz_blueVar1), var(--waviz_blue));
+  box-shadow: 0 8px 20px var(--waviz_bgDarkBlue2);
   border-radius: 6px;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .cta-button:hover {
-  background-color: #005fd1;
+  background-color: var(--waviz_blue);
   transform: scale(1.05) translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0, 119, 255, 0.5);
+  box-shadow: 0 0px 30px rgba(0, 119, 255, 0.5);
 }
 
 /* Navbar */
@@ -287,6 +296,11 @@
   color: #fff;
 }
 
+
+.navbarButtons{
+  display: flex;
+  align-items: center;
+}
 /* --------- Docs Page Styles --------- */
 
 .docs-page {
@@ -399,7 +413,6 @@
   background-color: #1e1e2f;
   padding: 1.25rem 1.5rem;
   border-radius: 8px;
-  margin: 1.5rem 0;
   overflow-x: auto;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
@@ -656,7 +669,6 @@ code {
   background-color: #1e1e2f;
   padding: 1.25rem 1.5rem;
   border-radius: 8px;
-  margin: 1.5rem 0;
   overflow-x: auto;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
@@ -770,7 +782,7 @@ h1 {
 .sectionImage {
   border-radius: 10px;
   width: auto;
-  max-width: 400px;
+  max-height: 250px;
 }
 
 .sectionLogo {
@@ -792,6 +804,7 @@ h1 {
 @media screen and (max-width: 768px) {
   .sectionBlock {
     flex-direction: column;
+    align-items: center;
   }
   .sectionReversed {
     flex-direction: column;

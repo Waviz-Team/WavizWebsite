@@ -77,17 +77,20 @@ function Gallery() {
               </div>
 
               <div className='section'>
-                <h3>Code</h3>
-                <div className='code-container'>
+                <h3>Code Sample</h3>
+                
                   <code className='code-snippet'>
-                    {selectedItem.code || 'No code available.'}
+                    <span>{selectedItem.code || 'No code sample available.'}</span>
+                    <a onClick={handleCopy}> {copied ? 'Copied!' : 'Copy'}</a>
                   </code>
-                  {selectedItem.code && (
+                  {/* {selectedItem.code && (
                     <button className='copy-button' onClick={handleCopy}>
                       {copied ? 'Copied!' : 'Copy'}
                     </button>
-                  )}
-                </div>
+                  )} */}
+                
+
+
               </div>
             </div>
 

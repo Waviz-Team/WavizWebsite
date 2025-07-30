@@ -158,8 +158,11 @@
   white-space: pre-wrap;
   color: #222;
   display: block;
-  width: fit-content;
+  width: 100%;
   margin-top: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+
 }
 
 /* 가운데 정렬된 닫기 버튼 */

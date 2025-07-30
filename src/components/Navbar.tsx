@@ -9,7 +9,7 @@ export default function Navbar() {
           <img src='/assets/logos/waviz.svg' alt='Waviz Logo' className='logo' />
         </Link>
       </div>
-      <div>
+      <div className='navbarButtons'>
         <Link to='/docs'>Docs</Link>
         <Link to='/gallery'>Gallery</Link>
         <Link to='/about'>Team</Link>

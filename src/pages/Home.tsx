@@ -54,7 +54,7 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <img className='sectionImage' src='/assets/gallery/Wave2.gif' />
+            <img className='sectionImage' src='/assets/homepageAnimations/waveform.gif'/>
           </div>
         </div>
         <div className='sectionBlock sectionReversed'>
@@ -71,7 +71,7 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <img className='sectionImage' src='/assets/gallery/Bars3.gif' />
+            <img className='sectionImage' src='/assets/homepageAnimations/waapi.gif' />
           </div>
         </div>
         <div className='sectionBlock'>
@@ -87,7 +87,7 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <img className='sectionImage' src='/assets/gallery/Particles1.gif' />
+            <img className='sectionImage' src='/assets/homepageAnimations/PnP.gif' />
           </div>
         </div>
       </section>
@@ -140,7 +140,7 @@ export default function Home() {
             </a>
           </div>
           <div>
-            <img className='sectionImage' src='/assets/gallery/Mixed6.gif' />
+            <img className='sectionImage' src='/assets/homepageAnimations/PnP2.gif' />
           </div>
         </div>
       </section>
