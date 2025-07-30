@@ -16,7 +16,7 @@ export const galleryItems: GalleryItem[] = [
     imageUrl: '/assets/gallery/Bars1.gif',
     description: 'Real-time audio visualization powered by Waviz.',
     params: [
-      { name: 'boo', value: '123' },
+      { name: '', value: '123' },
       { name: 'bar', value: '456' },
       { name: 'baz', value: '789' },
     ],

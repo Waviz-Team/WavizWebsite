@@ -1,3 +1,4 @@
+
 /* Gallery container */
 .gallery-container {
   padding: 2rem;
@@ -177,4 +178,33 @@
 
 .close-button:hover {
   background-color: #555;
+}
+
+/* Code block wrapper with relative positioning for button */
+.code-container {
+  position: relative;
+  padding: 1rem;
+  background-color: #f4f4f4;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  overflow-x: auto;
+}
+
+/* 복사 버튼 스타일 */
+.copy-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.copy-button:hover {
+  background: #0056b3;
 }
