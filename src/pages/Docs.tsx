@@ -30,8 +30,12 @@ export default function Docs() {
     {
       name: 'Input Class',
       description:
-        'The Input class helps initialize The purpose of the Input class is to help initialize an audio analyzer as well as identify the different types of audio/signals. The Input Class takes in two optional argument: a callback and an audioContext. The callback (tailored for an audio analyzer) must be initialized in order to use the other methods. The audioContext should only be passed if an audio context has already been set up. Otherwise, our Input class will create an audioContext by default for the user. audio sources.',
-      content: '',
+      'The Input class handles various types of audio input and prepares them for analysis. It accepts a callback (used to initialize a sourceNode) and an optional AudioContext. Supported sources include audio/video elements, local files, URLs, microphones, and screen audio.',
+
+      content: `this.input = new Input((sourceNode) => {
+                  this.setupAudioAnalysis(sourceNode);
+                }, audioContext);`,
+
       methods: [
         {
           name: 'connectAudioSource',
@@ -103,8 +107,11 @@ export default function Docs() {
     {
       name: 'Audio Analyzer Class',
       description:
-        'PThe purpose of the analyzer class is to provide an in-house analyzer for audio data while maintaining a clear separation of concerns. The analyzer uses methods pre-defined on webAudio API to conduct Fourier transformations on a given audio context. startAnalysis takes two mandatory arguments: audioContext and sourceNode. sourceNode must be an AudioNode that we can connect to in order to run the analysis.erforms FFT analysis using the Web Audio API.',
-      content: 'analyzer.startAnalysis(audioContext, sourceNode);',
+      'The AudioAnalyzer class transforms audio input into frequency and time domain data using the Web Audio API. Use startAnalysis(audioContext, sourceNode) to begin analysis. Then retrieve data with getFrequencyData() or getTimeDomainData().',
+
+      content: `const analyzer = new AudioAnalyzer();
+                analyzer.startAnalysis(audioContext, sourceNode);`,
+
       methods: [
         {
           name: 'startAnalysis',
@@ -149,237 +156,172 @@ export default function Docs() {
     {
       name: 'Waviz Visualizer Class',
       description:
-        'The Waviz Visualizer class handles the canvas rendering system for various real-time audio visualization types. It provides the .render() method to start drawing, as well as support for custom visual types, coordinate systems, color modes, and layering multiple effects simultaneously.raws visuals on the canvas using audio data. To implement the Waviz visualizer, create a new instance of `Waviz` by passing in an HTML `<canvas>` element and an audio source element:',
-      content: 'const viz = new Waviz(canvas, audio);',
+      'The Visualizer class renders real-time audio data to a canvas element. It supports multiple visualization types such as lines, bars, dots, and particles, and works with both time and frequency domain data. Colors, gradients, and styles can be customized.',
+      content: `const visualizer = new Visualizer(canvas, analyzer);
+      visualizer.simpleLine('#3498db');`,
+
       methods: [
         {
           name: 'render',
           description:
-            'Starts the visualization rendering on the canvas using provided config or array of configs.',
-          content: `// Basic usage
-viz.visualizer.render();
+            'Starts visualization rendering on the canvas. Trigger inside a user gesture.',
+          content: `audio.addEventListener('play', () => {
+            viz.visualizer.render();
+          });`,
 
-// Recommended inside a user gesture (like play)
-audio.addEventListener('play', () => {
-  viz.visualizer.render();
-});`,
         },
         {
           name: 'stop',
           description:
-            'Stops the visualization rendering to conserve resources (especially for finite audio sources).',
-          content: `// Manually stop the visualizer
-viz.stop();
+            'Stops rendering to save resources. Ideal for finite audio sources.',
+          content: `audio.addEventListener('pause', () => {
+            viz.stop();
+          });`,
 
-// Recommended for finite sources like audio/video
-audio.addEventListener('pause', () => {
-  viz.stop();
-});`,
         },
         {
           name: 'Options Overview',
           description:
-            'The Waviz visualizer accepts a config object or array of config objects to control visualization layers. Each object may include: domain, coord, viz, color, style.',
+            'Accepts config objects for customizing visuals. Includes domain, coord, viz, color, style.',
           content: `{
-  domain: [],
-  coord: [],
-  viz: [],
-  color: [],
-  style: [],
-}`,
+            domain: [],
+            coord: [],
+            viz: [],
+            color: [],
+            style: [],
+          }`,
         },
         {
           name: 'domain',
           description:
-            'Controls the type and shape of audio data input. Use "time" for waveform or "freq" for FFT frequency data. Also supports amplitude and range.',
-          content: `
-\`\`\`ts
-domain: [<domainType>, <amplitude>, <range>]
-\`\`\`
+            'Sets input type: "time" (waveform) or "freq" (FFT). Adjust amplitude and frequency range.',
+          content: `domain: ['freq', 100, 1024]`,
 
-- \`<domainType>\`: 'time' *(default)* or 'freq'
-  - 'time' → Original waveform (TimeDomain).
-  - 'freq' → Frequency data via FFT.
-
-- \`<amplitude>\` (default: \`100\`): Controls waveform height/intensity.
-
-- \`<range>\` (default: \`1024\`): Trims high-end frequencies.
-`,
         },
         {
           name: 'coord',
           description:
-            'Controls the coordinate system. Choose "rect" for Cartesian or "polar" for circular layout. Polar supports optional radius.',
-          content: `// Set coordinate system and optional radius
-coord: [<coordinateSystem>, <radius?>]
+            'Controls layout system: "rect" (Cartesian) or "polar" (circular). Optional radius for polar.',
+          content: `coord: ['polar', 100]`,
 
-// Example usage:
-coord: ['polar', 100]
-
-// Options:
-// <coordinateSystem>: 'rect' (default) or 'polar'
-// <radius> (only for 'polar'): controls circular radius (default: 100)
-`,
         },
         {
           name: 'viz',
           description:
-            'Defines the visual shape. Supported values include: line, bars, polarBars, dots, particles.',
-          content: `// Controls what type of visual to render
-viz: [<visualizationType>, <...params>]
+            'Defines visual type: "line", "bars", "polarBars", "dots", or "particles".',
+          content: `viz: ['bars', 8]`,
 
-// Available types:
-
-// 1. 'line' (default)
-// Draws waveform line
-viz: ['line', 1024] // sampling (default: 1024)
-
-// 2. 'bars'
-// Draws vertical bars
-viz: ['bars', 8] // number of bars (default: 8)
-// ⚠️ Not compatible with 'polar' coord
-
-// 3. 'polarBars' (beta)
-// Draws circular bars
-viz: ['polarBars']
-// 🚧 Experimental
-
-// 4. 'dots'
-// Animated dots
-viz: ['dots', 100] // number of dots (default: 100)
-
-// 5. 'particles'
-// Spawns reactive particles
-viz: ['particles', [1,1], 1, Infinity, 1, 100]
-// [velocity], gravity, lifespan, birthrate, sampling
-`,
         },
         {
           name: 'color',
           description:
-            'Sets the visual color. Can be a solid color, linearGradient, radialGradient, randomColor, or randomPalette.',
-          content: `// Controls color mode of the visualizer
-color: [<colorMode>, <...args>]
+            'Sets color mode: solid, linearGradient, radialGradient, randomColor, or randomPalette.',
+          content: `color: ['linearGradient', 'red', 'blue']`,
 
-// Available modes:
-
-// 1. Solid color
-color: ['red']
-color: ['#23AB87']
-
-// 2. Linear gradient (top to bottom)
-color: ['linearGradient', 'red', 'blue']
-
-// 3. Radial gradient (center-out)
-color: ['radialGradient', 'red', 'blue']
-
-// 4. Random color (changes every frame)
-color: ['randomColor']
-
-// 5. Random palette (selects from custom list every frame)
-color: ['randomPalette', ['red', 'green', 'blue']]
-`,
         },
         {
           name: 'style',
           description:
-            'Controls stroke width, fill, and dash styles (feature under development).',
-          content: `// [🚧 TODO]
-// style: [<strokeWidth>, <fillStyle?>, <dashPattern?>]
+            'Controls stroke width and fill options. (Feature in development)',
+          content: `style: [2]`,
 
-// Example:
-style: [2] // stroke width 2px
-`,
         },
       ],
     },
     {
       name: 'Waviz Class',
-      description: `The Waviz class acts as a high-level wrapper that combines the three core modules—Input, Analyzer, and Visualizer—into a single, unified interface. It offers a simple and effective way to create an audio visualizer without the need for a React component.
+      description:
+      'The Waviz class is a high-level wrapper that combines Input, Analyzer, and Visualizer into one interface. It simplifies audio visualization setup. Pass in a canvas and audio source to get started. Supports optional audioContext.',
 
-You can optionally pass the following arguments when instantiating the class:
+      content: `const waviz = new Waviz(canvas, audio);
+                audio.addEventListener('play', async () => {
+                  await waviz.input.initializePending();
+                  waviz.visualizer.simpleBars();
+                });`,
 
-- canvas (HTMLCanvasElement): The canvas on which the visualization will be rendered. Required if you plan to display visuals.
-- audioSource (as defined in Input.connectAudioSource()): An audio input element, required to route audio into the visualizer.
-- audioContext (AudioContext, optional): An optional AudioContext instance. Useful when managing multiple visualizers on the same page.
-
-All three arguments are optional during instantiation, but canvas and audioSource are required to start the visualizer. When these are provided, the class automatically initializes the necessary components, including the audio context.`,
-      content: 'const waviz = new Waviz(canvas, audioSource, audioContext);',
       methods: [
         {
           name: 'getFrequencyData',
           description:
             'Returns frequency domain data from AudioAnalyzer with safety checks.',
-          content: `// Get frequency data (Uint8Array)
-const data = waviz.getFrequencyData();
-// Useful for bar or particle visualizations`,
+          content: `const data = waviz.getFrequencyData();`,
+
         },
         {
           name: 'getTimeDomainData',
           description:
             'Returns time domain data from AudioAnalyzer with safety checks.',
-          content: `// Get waveform time-domain data (Uint8Array)
-const data = waviz.getTimeDomainData();
-// Useful for waveform or dots visualizations`,
+          content: `const data = waviz.getTimeDomainData();`,
+
         },
         {
           name: 'cleanup',
           description:
             'Delegates cleanup from Input class, disconnects sourceNode and releases the AudioContext safely.',
-          content: `// Clean up audio context and disconnect input
-waviz.cleanup();`,
+          content: `waviz.cleanup();`,
+
         },
         {
           name: 'wave',
           description:
             'Convenience method to render a waveform visualizer. Trigger via user gesture.',
-          content: `// Render waveform with default or custom options
-waviz.wave(); // uses defaults
+          content: `audio.addEventListener('play', () => {
+                    waviz.wave({
+                      coord: ['rect'],
+                      viz: ['line', 512],
+                      color: ['linearGradient', 'red', 'blue']
+                    });
+                  });`,
 
-// With custom options
-waviz.wave({
-  coord: ['rect'],
-  viz: ['line', 512],
-  color: ['linearGradient', 'red', 'blue']
-});
-
-// Recommended inside a gesture event:
-audio.addEventListener('play', () => {
-  waviz.wave();
-});`,
         },
         {
           name: 'bar',
           description:
             'Convenience method to render a bar visualizer. Trigger via user gesture.',
-          content: `// Render bars with default or custom options
-waviz.bar(); // uses defaults
+          content: `audio.addEventListener('play', () => {
+                    waviz.bar({
+                      coord: ['rect'],
+                      viz: ['bars', 16],
+                      color: ['radialGradient', 'orange', 'yellow']
+                    });
+                  });`,
 
-// With custom options
-waviz.bar({
-  coord: ['rect'],
-  viz: ['bars', 16],
-  color: ['radialGradient', 'orange', 'yellow']
-});
-
-// Recommended inside a gesture event:
-audio.addEventListener('play', () => {
-  waviz.bar();
-});`,
         },
       ],
     },
     {
-      name: 'Component Class',
-      description: 'Provides reusable React components like <WaveViz />',
-      content: '<WaveViz audioSource="file" />',
+      name: 'WaveViz Component',
+      description:
+      'Plug & Play React components for visualizing audio. Pass an audio ref or MediaStream source to quickly integrate waveform, bar, dot, or particle visualizations. Presets like Bars1–6 and Dots1–4 are supported.',
+
+      content: `<Mixed3 srcAudio={audioRef} srcCanvas={canvasRef} />`,
       methods: [
-        {
-          name: 'WaveComponent',
-          description: 'A React component that visualizes waveform.',
-          content: '<WaveViz audioSource="file" />',
-        },
-      ],
+    {
+      name: 'Bars',
+      description: 'Displays vertical bar visualizations. 6 presets available (Bars1–6).',
+      content: '<Bars2 srcAudio={audioRef} />',
+    },
+    {
+      name: 'Waves',
+      description: 'Shows animated waveform visuals. 7 presets available (Waves1–7).',
+      content: '<Waves3 srcAudio={audioRef} />',
+    },
+    {
+      name: 'Dots',
+      description: 'Displays dot-based visuals synced to waveform. 4 presets (Dots1–4).',
+      content: '<Dots1 srcAudio={audioRef} />',
+    },
+    {
+      name: 'Particles',
+      description: 'Renders reactive particle effects. 1 preset (Particles1).',
+      content: '<Particles1 srcAudio={audioRef} />',
+    },
+    {
+      name: 'Mixed',
+      description: 'Combines multiple visual styles into one flexible preset.',
+      content: '<Mixed3 srcAudio={audioRef} srcCanvas={canvasRef} />',
+    },
+  ],
     },
   ];
 
@@ -490,8 +432,16 @@ audio.addEventListener('play', () => {
           <section className='docs-section'>
             <h2>Installation</h2>
             <p>Install Waviz via npm:</p>
-              <code>npm install waviz</code>
-            
+            <div className='codeBlockCopy'>
+              <code>
+                npm install waviz
+                <a
+                  onClick={() => navigator.clipboard.writeText('npm install waviz')}
+                  className='copyCode'>
+                  copy
+                </a>
+              </code>
+            </div>
           </section>
 
           <section className='docs-section'>
@@ -504,39 +454,51 @@ audio.addEventListener('play', () => {
             {filteredApiList.length > 0 ? (
               <ul>
                 {filteredApiList.map((item) => (
-                  <li key={item.name} className='api-item'>
-                    <h3 id={item.name.toLowerCase()}>{item.name}</h3>
-                    <p>{item.description}</p>
-                      <code>{item.content}</code>
+            <li key={item.name} className='api-item'>
+              <h3 id={item.name.toLowerCase()}>{item.name}</h3>
+              <p>{item.description}</p>
 
-                    {item.methods &&
-                      item.methods.map((method) => (
-                        <div
-                          key={method.name}
-                          id={method.name.toLowerCase()}
-                          className={`method-block ${
-                            highlightedMethod === method.name ? 'highlight' : ''
-                          }`}>
-                          <h4>{method.name}</h4>
-                          <p>{method.description}</p>
-                          <div className='codeBlockCopy'>
-                            <code>
-                              {method.content}
-                              <a
-                                onClick={() =>
-                                  navigator.clipboard.writeText(
-                                    method.content || ''
-                                  )
-                                }
-                                className='copyCode'>
-                                copy
-                              </a>
-                            </code>
-                          </div>
-                        </div>
-                      ))}
-                  </li>
+              {item.content && (
+                <div className='codeBlockCopy'>
+                  <code>
+                    {item.content}             
+                    <a
+                      onClick={() =>
+                        navigator.clipboard.writeText(item.content || '')
+                      }
+                      className='copyCode'>
+                      copy
+                    </a>
+                  </code>
+                </div>
+              )}
+
+              {item.methods &&
+                item.methods.map((method) => (
+                  <div
+                    key={method.name}
+                    id={method.name.toLowerCase()}
+                    className={`method-block ${
+                      highlightedMethod === method.name ? 'highlight' : ''
+                    }`}>
+                    <h4>{method.name}</h4>
+                    <p>{method.description}</p>
+                    <div className='codeBlockCopy'>
+                      <code>
+                        {method.content}
+                        <a
+                          onClick={() =>
+                            navigator.clipboard.writeText(method.content || '')
+                          }
+                          className='copyCode'>
+                          copy
+                        </a>
+                      </code>
+                    </div>
+                  </div>
                 ))}
+            </li>
+          ))}
               </ul>
             ) : (
               <p style={{ color: '#888' }}>No results found.</p>
