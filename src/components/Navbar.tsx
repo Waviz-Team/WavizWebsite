@@ -21,7 +21,7 @@ export default function Navbar() {
         </Link>
         <a
           className='hideOnSmallScreen'
-          href='https://github.com/Waviz-Team'
+          href='https://github.com/Waviz-Team/Waviz'
           target='_blank'
           rel='noopener noreferrer'>
           GitHub
