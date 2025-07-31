@@ -38,9 +38,17 @@ export default function Docs() {
       <h2>Documentation</h2>
       <div className='docsContainer'>
         <div className='index'>
-          <a href='#introduction'>Introduction</a>
+          <a href='#overview'>Overview</a>
+          <a href='#architecture'>Architecture</a>
           <a href='#installation'>Installation</a>
-          <a href='#visualizer-api'>Visualizer</a>
+          <a href='#library'>Library</a>
+          <a href='#plug--play-react-components'>Plug & Play Components</a>
+          <a href='#waviz-core-usage-notes'>Waviz Core usage notes</a>
+          <a href='#waviz-composition-api'>Waviz composition API</a>
+          <a href='#input-api'>Input API</a>
+          <a href='#analyzer-api'>Analyser API</a>
+          <a href='#visualizer-api'>Visualizer API</a>
+          <a href='#layering-multiple-visualizations'>Layering Multiple Visualizations</a>
         </div>
         <div
           className='markdown'

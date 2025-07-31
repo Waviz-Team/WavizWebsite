@@ -14,7 +14,7 @@ export default function Footer() {
           <p>2025, all rights reserved</p>
           <div className='footer-icons'>
             <a
-              href='https://github.com/'
+              href='https://github.com/Waviz-Team/Waviz'
               target='_blank'
               rel='noopener noreferrer'>
               <img
@@ -23,7 +23,7 @@ export default function Footer() {
                 className='footer-icon'
               />
             </a>
-            <a
+            {/* <a
               href='https://linkedin.com/'
               target='_blank'
               rel='noopener noreferrer'>
@@ -32,9 +32,9 @@ export default function Footer() {
                 alt='LinkedIn'
                 className='footer-icon'
               />
-            </a>
+            </a> */}
             <a
-              href='https://npmjs.com/'
+              href='https://www.npmjs.com/package/waviz'
               target='_blank'
               rel='noopener noreferrer'>
               <img
@@ -57,22 +57,25 @@ export default function Footer() {
             <li>
               <a href='/about'>Team</a>
             </li>
-            <li>
-              <a href='https://github.com/Waviz-Team'>GitHub</a>
-            </li>
           </ul>
         </div>
         <div className='footer-column'>
           <h3>News</h3>
           <ul>
             <li>
-              <a href='#'>Product Hunt</a>
+              <a target='_blank' href='https://www.producthunt.com'>
+                Product Hunt
+              </a>
             </li>
             <li>
-              <a href='#'>Medium</a>
+              <a target='_blank' href='https://medium.com'>
+                Medium
+              </a>
             </li>
             <li>
-              <a href='#'>Hackernoon</a>
+              <a target='_blank' href='https://hackernoon.com'>
+                Hackernoon
+              </a>
             </li>
           </ul>
         </div>
