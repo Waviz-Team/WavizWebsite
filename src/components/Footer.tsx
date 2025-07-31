@@ -63,12 +63,12 @@ export default function Footer() {
           <h3>News</h3>
           <ul>
             <li>
-              <a target='_blank' href='https://www.producthunt.com'>
+              <a target='_blank' href='https://www.producthunt.com/products/waviz-visualization-library?launch=waviz-visualization-library'>
                 Product Hunt
               </a>
             </li>
             <li>
-              <a target='_blank' href='https://medium.com'>
+              <a target='_blank' href='https://medium.com/@seungtaekoh5/if-react-had-a-built-in-audio-visualizer-it-would-like-this-240d93ec6505'>
                 Medium
               </a>
             </li>
