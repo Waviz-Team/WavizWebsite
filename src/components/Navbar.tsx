@@ -6,14 +6,21 @@ export default function Navbar() {
     <nav className='navbar'>
       <div className='navbar-title'>
         <Link to='/'>
-          <img src='/assets/logos/waviz.svg' alt='Waviz Logo' className='logo' />
+          <img
+            src='/assets/logos/waviz.svg'
+            alt='Waviz Logo'
+            className='logo'
+          />
         </Link>
       </div>
       <div className='navbarButtons'>
         <Link to='/docs'>Docs</Link>
         <Link to='/gallery'>Gallery</Link>
-        <Link to='/about'>Team</Link>
+        <Link className='hideOnSmallScreen' to='/about'>
+          Team
+        </Link>
         <a
+          className='hideOnSmallScreen'
           href='https://github.com/Waviz-Team'
           target='_blank'
           rel='noopener noreferrer'>

@@ -1,8 +1,10 @@
-/* ====== Container ====== */
+/* ====== Container Layout ====== */
 .about-container {
-  max-width: 1000px;
-  margin: 1rem auto; 
+  max-width: 80vw;
+  margin: 1rem auto;
+  margin-top: 0;
   padding: 1rem;
+  padding-top:6rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -10,13 +12,26 @@
   align-items: center;
 }
 
-/* ====== Section Titles ====== */
+/* ====== Typography ====== */
 .about-title,
 .section-title {
   text-align: center;
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
+}
+
+.about-section {
+  margin-bottom: 4rem;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  text-align: left;
+  width: 100%;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 /* ====== Gradient Text ====== */
@@ -28,36 +43,15 @@
   text-fill-color: transparent;
 }
 
-/* ====== About Section Text ====== */
-
-.about-section {
-  margin-bottom: 4rem;
-  font-family: 'Inter', 'Segoe UI', sans-serif; 
-  text-align: left;
-  width: 100%;
-}
-
-
-.about-section p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-/* ====== Team Card Grid ====== */
+/* ====== Grid Layout ====== */
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: start;
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
+  gap: 2rem;
 }
 
-
-/* ====== Team Card Styles ====== */
+/* ====== Team Cards ====== */
 .team-card {
   border: 1px solid #ddd;
   border-radius: 12px;
@@ -74,7 +68,7 @@
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
-/* ====== Profile Image Container ====== */
+/* ====== Image Styles ====== */
 .image-container {
   overflow: hidden;
   border-radius: 50%;
@@ -94,13 +88,7 @@
   transform: scale(1.1);
 }
 
-/* ====== Card Text ====== */
-.team-name {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin: 0.5rem 0 0.25rem;
-}
-
+/* ====== Text Styles ====== */
 .team-email {
   font-size: 0.9rem;
   color: #555;
@@ -117,16 +105,16 @@
   color: #0077b5;
   display: block;
   margin-top: 0.25rem;
-  text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.team-linkedin:hover {
-  color: #005582;
-  text-decoration: underline;
+.team-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0.5rem 0 0.25rem;
 }
 
-/* 소셜 아이콘 스타일 */
+/* ====== Social Icons Styles ====== */
 .social-icon {
   display: inline-flex;
   align-items: center;
@@ -137,7 +125,7 @@
 }
 
 .social-icon:hover {
-  color: #0077b5; /* LinkedIn 파란색 */
+  color: #0077b5; /* LinkedIn blue */
 }
 
 .socialMediaIcons {
@@ -145,32 +133,33 @@
   height: 1rem;
 }
 
-/* 텍스트는 기본 숨김 */
+/* Text hidden by default */
 .icon-label {
   display: none;
   margin-left: 6px;
   font-size: 0.9rem;
 }
 
-/* 호버 시만 텍스트 표시 */
+/* Show text only on hover */
 .social-icon:hover .icon-label {
   display: inline;
 }
 
+/* ====== Link States ====== */
 .team-card a {
-  text-decoration: none;
-  color: #007bff;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   margin-top: 0.4rem;
   font-weight: 500;
-  justify-content: center;     
-  text-align: center;          
-  width: 100%;                
+  justify-content: center;
+  text-align: center;
+  width: 100%;
 }
 
-
+.team-card a,
+.team-linkedin:hover,
 .team-card a:hover {
   color: #0056b3;
-  text-decoration: none; }
+  text-decoration: none;
+}

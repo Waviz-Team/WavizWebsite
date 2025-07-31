@@ -1,0 +1,100 @@
+/* -----DocsMD----- */
+.docsMDContent {
+  padding-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.docsContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.index {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-right: solid 1px #d2d2d2;
+  padding: 0.5rem;
+  min-width: 15rem;
+  margin-top: 5rem;
+}
+
+.index a {
+  text-decoration: none;
+  font-weight: bold;
+  text-align: end;
+  color: #23404f;
+  /* background-color: #5bc4fa; */
+  padding: 0.2rem 0.7rem;
+  border-radius: 0.5rem;
+  display: block;
+  transition: translate 0.5s;
+}
+
+.index a:hover {
+  color: #6196b0;
+  translate: -1rem;
+}
+
+.index a:active {
+  color: #52b6e7;
+}
+
+@media screen and (max-width: 800px) {
+  .index {
+    display: none;
+  }
+}
+
+/* -----Markdown----- */
+.markdown {
+  line-height: 1.6;
+  font-family: system-ui, sans-serif;
+  padding: 1rem;
+  max-width: 600px;
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.markdown h1 {
+  margin-bottom: 0.5rem;
+}
+
+.markdown h2,
+.markdown h3 {
+  margin-bottom: 0.2rem;
+}
+
+.markdown p {
+  margin: 0.5em 0;
+}
+
+.markdown a {
+  text-decoration: none;
+  color: #40aee4;
+}
+
+.markdown ul {
+  padding-left: 1.2em;
+  list-style-type: disc;
+}
+
+.markdown img {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.markdown code {
+  font-family: monospace;
+  background: #3a3a3a;
+  margin: 0.2em 0.4em;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  text-wrap: wrap;
+}

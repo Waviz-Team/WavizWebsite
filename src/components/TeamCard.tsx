@@ -19,27 +19,30 @@ const TeamCard: React.FC<TeamCardProps> = ({
 }) => {
   return (
     <div className={`team-card ${bgColorClass}`}>
-      <div className="image-container">
-        <img src={image} alt={name} className="team-image" />
+      <div className='image-container'>
+        <img src={image} alt={name} className='team-image' />
       </div>
-      <div className="team-name">{name}</div>
-      <div className="team-email">{email}</div>
+      <div className='team-name'>{name}</div>
+      <div className='team-email'>{email}</div>
       <a
         href={github}
-        className="team-github"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-         <img src='/assets/logos/githubBlack.svg'  className='socialMediaIcons'/> GitHub Profile
+        className='team-github'
+        target='_blank'
+        rel='noopener noreferrer'>
+        <img src='/assets/logos/githubBlack.svg' className='socialMediaIcons' />{' '}
+        GitHub Profile
       </a>
       {linkedin && (
         <a
           href={linkedin}
-          className="team-linkedin"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src='/assets/logos/linkedInBlack.svg' className='socialMediaIcons'/> LinkedIn Profile
+          className='team-linkedin'
+          target='_blank'
+          rel='noopener noreferrer'>
+          <img
+            src='/assets/logos/linkedInBlack.svg'
+            className='socialMediaIcons'
+          />{' '}
+          LinkedIn Profile
         </a>
       )}
     </div>

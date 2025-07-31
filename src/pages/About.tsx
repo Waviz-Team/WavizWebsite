@@ -39,21 +39,27 @@ const teamData = [
 
 const About: React.FC = () => {
   return (
-    <div className="about-container">
-      <section className="about-section">
-        <h2 className="section-title">About</h2>
+    <div className='about-container'>
+      <section className='about-section'>
+        <h2 className='section-title'>About the team</h2>
         <p>
-          Waviz is an open-source audio visualization library built with React and Web Audio API.
-          It empowers developers to create customizable, real-time visual experiences for audio data.
+          We’re a small group of developers passionate about building tools that
+          empower creativity. Waviz was born from our shared curiosity—and from
+          recognizing a gap in the market for a flexible, open-source audio
+          visualization library that’s both powerful and approachable.
         </p>
         <p>
-          This project is developed as part of the Codesmith open source program and focuses on both flexibility and performance.
+          We believe great developer tools should be intuitive, customizable,
+          and fun to use. Our goal with Waviz is to make it easier for others to
+          explore the creative potential of sound through code. Whether you’re
+          building a music visualizer, an educational tool, or something
+          entirely experimental, we hope Waviz helps bring your ideas to life.
         </p>
       </section>
 
-      <section className="team-section">
-        <h2 className="section-title">Meet the Team</h2>
-        <div className="team-grid">
+      <section className='team-section'>
+        <h2 className='section-title'>Who we are</h2>
+        <div className='team-grid'>
           {teamData.map((member, index) => (
             <TeamCard
               key={index}
