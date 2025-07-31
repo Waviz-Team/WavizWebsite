@@ -63,7 +63,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className='footer-column'>
-          <h3>In the News</h3>
+          <h3>News</h3>
           <ul>
             <li>
               <a href='#'>Product Hunt</a>

@@ -63,16 +63,32 @@
 }
 
 .markdown h1 {
-  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  color: #273e48;
+  margin: 3rem 0rem 0.5rem 0rem;
 }
 
-.markdown h2,
+.markdown h2 {
+  font-size: 2rem;
+  color: #50636b;
+  margin: 3rem 0rem 0.5rem 0rem;
+}
+
 .markdown h3 {
-  margin-bottom: 0.2rem;
+  font-size: 1.5rem;
+  color: #83a7b8;
+  margin: 3rem 0rem 0.5rem 0rem;
+}
+
+.markdown h4 {
+  font-size: 1rem;
+  font-style: italic;
+  color: #5d99b4;
+  margin: 3rem 0rem 0.5rem 0rem;
 }
 
 .markdown p {
-  margin: 0.5em 0;
+  margin: 0.5rem 0rem 0.5rem 0rem;
 }
 
 .markdown a {
@@ -83,6 +99,7 @@
 .markdown ul {
   padding-left: 1.2em;
   list-style-type: disc;
+  margin: 1rem 0rem;
 }
 
 .markdown img {
