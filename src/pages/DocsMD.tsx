@@ -40,6 +40,7 @@ export default function Docs() {
         <div className='index'>
           <a href='#introduction'>Introduction</a>
           <a href='#installation'>Installation</a>
+          <a href='#visualizer-api'>Visualizer</a>
         </div>
         <div
           className='markdown'

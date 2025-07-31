@@ -55,6 +55,7 @@
   line-height: 1.6;
   font-family: system-ui, sans-serif;
   padding: 1rem;
+  margin:0rem 0rem 10rem 0rem;
   max-width: 600px;
   flex: 1;
   width: 100%;
@@ -76,15 +77,22 @@
 
 .markdown h3 {
   font-size: 1.5rem;
-  color: #83a7b8;
+  color: #6badcb;
   margin: 3rem 0rem 0.5rem 0rem;
 }
 
 .markdown h4 {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #afcbd8;
+  margin: 3rem 0rem 0.5rem 0rem;
+}
+
+.markdown h5 {
   font-size: 1rem;
   font-style: italic;
-  color: #5d99b4;
-  margin: 3rem 0rem 0.5rem 0rem;
+  color: #8e8e8e;
+  margin: 1.5rem 0rem 0.5rem 0rem;
 }
 
 .markdown p {
@@ -109,9 +117,10 @@
 
 .markdown code {
   font-family: monospace;
-  background: #3a3a3a;
-  margin: 0.2em 0.4em;
-  padding: 0.5em 1em;
+  background: #434343;
+  padding: 0.2em 1em;
+  margin: 0.1rem 0rem;
   border-radius: 4px;
   text-wrap: wrap;
+  box-shadow: none;
 }
