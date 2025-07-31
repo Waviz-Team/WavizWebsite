@@ -1,0 +1,126 @@
+/* -----DocsMD----- */
+.docsMDContent {
+  padding-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.docsContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.index {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-right: solid 1px #d2d2d2;
+  padding: 0.5rem;
+  min-width: 15rem;
+  margin-top: 3rem;
+}
+
+.index a {
+  text-decoration: none;
+  font-weight: bold;
+  text-align: end;
+  color: #23404f;
+  /* background-color: #5bc4fa; */
+  padding: 0.2rem 0.7rem;
+  border-radius: 0.5rem;
+  display: block;
+  transition: translate 0.5s;
+}
+
+.index a:hover {
+  color: #6196b0;
+  translate: -1rem;
+}
+
+.index a:active {
+  color: #52b6e7;
+}
+
+@media screen and (max-width: 800px) {
+  .index {
+    display: none;
+  }
+}
+
+/* -----Markdown----- */
+.markdown {
+  line-height: 1.6;
+  font-family: system-ui, sans-serif;
+  padding: 1rem;
+  margin:3rem 0rem 10rem 0rem;
+  max-width: 600px;
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.markdown h1 {
+  font-size: 2.5rem;
+  color: #273e48;
+  margin: 3rem 0rem 0.5rem 0rem;
+}
+
+.markdown h2 {
+  font-size: 2rem;
+  color: #50636b;
+  margin: 3rem 0rem 0.5rem 0rem;
+}
+
+.markdown h3 {
+  font-size: 1.5rem;
+  color: #6badcb;
+  margin: 3rem 0rem 0.5rem 0rem;
+}
+
+.markdown h4 {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #93a9b3;
+  margin: 3rem 0rem 0.5rem 0rem;
+}
+
+.markdown h5 {
+  font-size: 1rem;
+  font-style: italic;
+  color: #8e8e8e;
+  margin: 1.5rem 0rem 0.5rem 0rem;
+}
+
+.markdown p {
+  margin: 0.5rem 0rem 0.5rem 0rem;
+}
+
+.markdown a {
+  text-decoration: none;
+  color: #40aee4;
+}
+
+.markdown ul {
+  padding-left: 1.2em;
+  list-style-type: disc;
+  margin: 1rem 0rem;
+}
+
+.markdown img {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.markdown code {
+  font-family: monospace;
+  background: #434343;
+  padding: 0.2em 1em;
+  margin: 0.1rem 0rem;
+  border-radius: 4px;
+  text-wrap: wrap;
+  box-shadow: none;
+}

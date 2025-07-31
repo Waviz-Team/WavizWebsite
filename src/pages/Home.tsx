@@ -21,12 +21,13 @@ export default function Home() {
           <video autoPlay loop muted playsInline>
             <source src='/assets/video/homeVideo.mp4' type='video/mp4' />
           </video>
-          
         </div>
 
-          <img src='/assets/logos/waviz.svg' className='mainLogo'/>
-        <div className={`logo-text-wrapper ${fadeIn ? 'fade-in' : 'pre-fade'}`}>
-        </div>
+        <img src='/assets/logos/waviz.svg' className='mainLogo' />
+        <div
+          className={`logo-text-wrapper ${
+            fadeIn ? 'fade-in' : 'pre-fade'
+          }`}></div>
         <h1 className={`title-subtext ${fadeIn ? 'fade-in' : 'pre-fade'}`}>
           Real-Time Audio Visualization Made Easy
         </h1>
@@ -54,7 +55,10 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <img className='sectionImage' src='/assets/homepageAnimations/waveform.gif'/>
+            <img
+              className='sectionImage'
+              src='/assets/homepageAnimations/waveform.gif'
+            />
           </div>
         </div>
         <div className='sectionBlock sectionReversed'>
@@ -71,7 +75,10 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <img className='sectionImage' src='/assets/homepageAnimations/waapi.gif' />
+            <img
+              className='sectionImage'
+              src='/assets/homepageAnimations/waapi.gif'
+            />
           </div>
         </div>
         <div className='sectionBlock'>
@@ -87,7 +94,10 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <img className='sectionImage' src='/assets/homepageAnimations/PnP.gif' />
+            <img
+              className='sectionImage'
+              src='/assets/homepageAnimations/PnP.gif'
+            />
           </div>
         </div>
       </section>
@@ -112,7 +122,7 @@ export default function Home() {
             </p>
             <code>npm install waviz</code>
           </div>
-          <div className='code-block'>
+          <div className='code-block homeCodeBlock'>
             <p>import Waviz from '../Waviz'</p>
             <p>const visualizer = new Waviz(canvas,audio)</p>
             <p>visualizer.render()</p>
@@ -123,74 +133,35 @@ export default function Home() {
       {/* Library Section */}
 
       <section className='library-section'>
-            <img src='/assets/logos/pnp.svg' alt='Waviz Plug-n-Play Logo' className='sectionLogo'/>
+        <img
+          src='/assets/logos/pnp.svg'
+          alt='Waviz Plug-n-Play Logo'
+          className='sectionLogo'
+        />
         <div className='sectionBlock'>
           <div>
             <p>
-              Waviz Plug-n-Play brings the power of audio visualization into a modern
-              component-based architecture. With a growing set of modular,
-              prebuilt components, you can drop responsive visualizers directly
-              into your React app—no boilerplate required. Every component is
-              designed to be themeable, flexible, and easy to configure via
-              props, so you can focus on building experiences, not reinventing
-              infrastructure.
+              Waviz Plug-n-Play brings the power of audio visualization into a
+              modern component-based architecture. With a growing set of
+              modular, prebuilt components, you can drop responsive visualizers
+              directly into your React app—no boilerplate required. Every
+              component is designed to be themeable, flexible, and easy to
+              configure via props, so you can focus on building experiences, not
+              reinventing infrastructure.
             </p>
+            <br />
             <a href='/gallery' className='cta-button'>
               Explore
             </a>
           </div>
           <div>
-            <img className='sectionImage' src='/assets/homepageAnimations/PnP2.gif' />
+            <img
+              className='sectionImage'
+              src='/assets/homepageAnimations/PnP2.gif'
+            />
           </div>
         </div>
       </section>
-
-      {/* Footer Section */}
-      <footer className="footer-section">
-        <div className="footer-container">
-          <div className="footer-column">
-            <h3
-              style={{ cursor: 'pointer' }}
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            >
-              Waviz
-            </h3>
-            <p>2025, all rights reserved</p>
-            <div className="footer-icons">
-              <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/logos/githubWhite.svg" alt="GitHub" className="footer-icon" />
-              </a>
-              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/logos/linkedInWhite.svg" alt="LinkedIn" className="footer-icon" />
-              </a>
-              <a href="https://npmjs.com/" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/logos/npmWhite.svg" alt="NPM" className="footer-icon" />
-              </a>
-            </div>
-
-          </div>
-          <div className="footer-column">
-            <h3>Learn Waviz</h3>
-            <ul>
-              <li><a href="/docs">Docs</a></li>
-              <li><a href="/gallery">Gallery</a></li>
-              <li><a href="/about">Team</a></li>
-              <li><a href="https://github.com/Waviz-Team">GitHub</a></li>
-            </ul>
-          </div>
-          <div className="footer-column">
-            <h3>In the News</h3>
-            <ul>
-              <li><a href="#">Product Hunt</a></li>
-              <li><a href="#">Medium</a></li>
-              <li><a href="#">Hackernoon</a></li>
-              <li><a href="#">reddit</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
-
-
     </div>
   );
 }
