@@ -26,6 +26,13 @@ export default function Navbar() {
           rel='noopener noreferrer'>
           GitHub
         </a>
+        <a
+          className='hideOnSmallScreen'
+          href='https://www.npmjs.com/package/waviz'
+          target='_blank'
+          rel='noopener noreferrer'>
+          npm
+        </a>
       </div>
     </nav>
   );
